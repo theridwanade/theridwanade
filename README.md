@@ -48,6 +48,14 @@
 
 ---
 
+## ⏱ WakaTime Stats
+
+<p align="center">
+  <img src="https://wakatime.com/share/@efadc313-4de0-4714-bc63-9a49ac07dd6e/9ddc6dbb-1ce7-4b62-a8e9-7dcac546a041.svg" alt="WakaTime Stats" />
+</p>
+
+---
+
 ## 🧠 Mantra
 
 > “Focus on One Thing to Achieve Greatness”
