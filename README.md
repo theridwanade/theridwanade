@@ -1,17 +1,16 @@
 <h1 align="center">Hi, I'm Ridwan Ade 👋</h1>
 <p align="center">
-  <em>Backend & Distributed Systems Engineer | Rustacean | Builder of Infrastructure | Philosopher of Power</em>
+  <em>Backend & Distributed Systems Engineer | Rustacean</em>
 </p>
 
 ---
 
 ## 🚀 About Me
 
-- 🧠 I’m @theridwanade — a Backend Developer sharpening my edge toward **Distributed Systems Engineering** with **Rust**.
+- 🧠 I’m @theridwanade, a Backend Developer sharpening my edge toward **Distributed Systems Engineering** with **Rust**.
 - ⚙️ I build resilient systems, scale infrastructure, and question everything.  
 - 🛠 Currently focused on mastering **Rust**, **Systems Design**, and **Backend Infrastructure** at scale.
-- 🧭 I live by discipline, purpose, and pursuit of freedom — **Matrix-breaker in training**.
-
+  
 ---
 
 ## 👀 Interests
@@ -20,7 +19,6 @@
 - 🧱 Infrastructure: APIs, Postgres, NATS, Redis, Linux, Containers
 - 🌐 Systems thinking, game theory, psychology, power dynamics
 - 📚 Chinese history, ancient myth, and philosophy
-- 🔐 Digital sovereignty, financial freedom, and mental warfare
 
 ---
 
@@ -54,19 +52,7 @@
   <img src="https://wakatime.com/share/@efadc313-4de0-4714-bc63-9a49ac07dd6e/9ddc6dbb-1ce7-4b62-a8e9-7dcac546a041.svg" alt="WakaTime Stats" />
 </p>
 
----
-
-## 🧠 Mantra
-
-> “Focus on One Thing to Achieve Greatness”
-
----
 
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=theridwanade&show_icons=true&theme=radical" alt="Ridwan's GitHub Stats" />
 </p>
-
-<!---
-theridwanade/theridwanade is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-You can click the Preview link to take a look at your changes.
---->
