@@ -1,38 +1,55 @@
-<h1 align="center">Hi, I'm Ridwan Ade 👋</h1>
-<p align="center">
-  <em>Backend & Distributed Systems Engineer | Rustacean 🦀</em>
-</p>
+<h1 align="center">👋 Hi, I'm Ridwan</h1>
 
 <p align="center">
-  <a href="https://wakatime.com/@efadc313-4de0-4714-bc63-9a49ac07dd6e">
-    <img src="https://wakatime.com/badge/user/efadc313-4de0-4714-bc63-9a49ac07dd6e.svg" alt="Wakatime Badge" />
-  </a>
+  <em>Software Developer • TypeScript • Python • Rust</em>
 </p>
 
 ---
 
-## 🚀 About Me
+### 🧭 About Me
+I'm **@theridwanade**, a software developer passionate about building **scalable, resilient, and useful systems**.  
+My primary language is **TypeScript**, but I also write **Python** for fun — scripting small tools that make life simpler.  
+Currently, I’m learning **Rust** to sharpen my systems programming skills.  
 
-- 🧠 I’m **@theridwanade**, a backend developer sharpening my edge in **Distributed Systems Engineering** with **Rust**.
-- ⚙️ I build resilient systems, scale infrastructure, and challenge the status quo.  
-- 🛠 Currently mastering **Rust**, **Systems Design**, and **Backend Infrastructure** at scale.
-
----
-
-## 🤝 Open to Collaborations On
-
-- 🦀 Rust backends, APIs, and microservices  
-- 🔗 Distributed or peer-to-peer systems  
-- 🛠 Open-source tools that empower developers or promote decentralization  
+I enjoy contributing to **open-source projects** that challenge me and help others.  
+For me, writing code isn’t just about solving problems — it’s about understanding systems and creating value that lasts.
 
 ---
 
-## 📫 Reach Me
+### 🛠️ Tech Stack
 
-- 🐦 Twitter/X: [@theridwanade](https://x.com/theridwanade)  
+[![My Skills](https://skillicons.dev/icons?i=typescript,python,rust,c,firebase,gcp,git&perline=13)](#)
 
 ---
 
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=theridwanade&show_icons=true&theme=radical" alt="Ridwan's GitHub Stats" />
-</p>
+### 📈 GitHub Activity
+
+| Contribution Graph |
+|--------------------|
+| [![Ridwan's Graph](https://github-readme-activity-graph.vercel.app/graph?username=theridwanade&bg_color=151515&color=c1c0c1&line=ffffff&point=403d3d&area=true&hide_border=true)](https://github.com/ashutosh00710/github-readme-activity-graph) |
+
+---
+
+### 🏆 GitHub Trophies
+[![trophy](https://github-profile-trophy.vercel.app/?username=theridwanade&theme=darkhub&no-bg=true&no-frame=true&margin-w=10)](https://github.com/ryo-ma/github-profile-trophy)
+
+---
+
+### 📊 Stats
+
+![Ridwan's GitHub Stats](https://github-readme-stats.vercel.app/api?username=theridwanade&theme=vue-dark&show_icons=true&hide_border=false&count_private=true)  
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=theridwanade&theme=vue-dark&show_icons=true&hide_border=false&layout=compact)
+
+---
+
+### 🤝 Open to Collaborations On
+- Developer tools and open-source libraries  
+- Backend systems, APIs, and distributed infrastructure  
+- Mentorship and community initiatives for new learners  
+
+---
+
+### 🌐 Reach Me
+- 🕊️ **X (Twitter):** [@theridwanade](https://x.com/theridwanade)  
+- 💼 **LinkedIn:** [@theridwanade](https://linkedin.com/in/theridwanade)  
+- 🧑‍💻 **GitHub:** [@theridwanade](https://github.com/theridwanade)
