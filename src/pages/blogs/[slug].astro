@@ -71,15 +71,257 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
   </article>
 </Layout>
 
-<style>
-  .prose { color: rgb(31 41 55); line-height: 1.625; }
-  .prose h1 { font-size: 1.875rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: rgb(17 24 39); }
-  .prose h2 { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: rgb(17 24 39); }
-  .prose h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1rem; margin-bottom: 0.5rem; color: rgb(17 24 39); }
-  .prose p { margin-bottom: 1rem; }
-  .prose pre { background-color: rgb(243 244 246); padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; }
-  .prose code { background-color: rgb(243 244 246); padding: 0.25rem 0.5rem; border-radius: 0.25rem; font-size: 0.875rem; font-family: monospace; }
-  .prose pre code { background-color: transparent; padding: 0; }
-  .prose ul, .prose ol { margin-bottom: 1rem; margin-left: 1.5rem; }
-  .prose li { margin-bottom: 0.5rem; }
+<style is:global>
+  /* Base prose styles */
+  article .prose {
+    color: rgb(31 41 55);
+    line-height: 1.75;
+    font-size: 1.125rem;
+  }
+
+  /* Typography */
+  article .prose h1 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: rgb(17 24 39);
+    line-height: 1.2;
+  }
+
+  article .prose h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: rgb(17 24 39);
+    line-height: 1.3;
+  }
+
+  article .prose h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    color: rgb(17 24 39);
+    line-height: 1.4;
+  }
+
+  article .prose h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: rgb(31 41 55);
+  }
+
+  article .prose h5, article .prose h6 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-top: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: rgb(31 41 55);
+  }
+
+  /* Paragraphs and text */
+  article .prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
+
+  article .prose strong {
+    font-weight: 700;
+    color: rgb(17 24 39);
+  }
+
+  article .prose em {
+    font-style: italic;
+  }
+
+  article .prose a {
+    color: rgb(37 99 235);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  article .prose a:hover {
+    color: rgb(29 78 216);
+  }
+
+  /* Lists */
+  article .prose ul, article .prose ol {
+    margin-bottom: 1.25rem;
+    margin-left: 1.75rem;
+    padding-left: 0.5rem;
+  }
+
+  article .prose ul {
+    list-style-type: disc;
+  }
+
+  article .prose ol {
+    list-style-type: decimal;
+  }
+
+  article .prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.75;
+  }
+
+  article .prose li > ul, article .prose li > ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Code */
+  article .prose code {
+    background-color: rgb(243 244 246);
+    padding: 0.125rem 0.375rem;
+    border-radius: 0.25rem;
+    font-size: 0.875em;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(220 38 38);
+    font-weight: 500;
+  }
+
+  article .prose pre {
+    background-color: rgb(31 41 55);
+    color: rgb(243 244 246);
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+    line-height: 1.625;
+  }
+
+  article .prose pre code {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    color: inherit;
+    font-size: 0.875rem;
+    font-weight: 400;
+  }
+
+  /* Blockquotes */
+  article .prose blockquote {
+    border-left: 4px solid rgb(229 231 235);
+    padding-left: 1rem;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: rgb(75 85 99);
+    font-style: italic;
+  }
+
+  article .prose blockquote p {
+    margin-bottom: 0.75rem;
+  }
+
+  /* Images */
+  article .prose img {
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Multi-image grid layouts */
+  article .prose .image-grid-2,
+  article .prose .image-grid-3,
+  article .prose .image-grid-4 {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  article .prose .image-grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  article .prose .image-grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  article .prose .image-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  article .prose .image-grid-2 img,
+  article .prose .image-grid-3 img,
+  article .prose .image-grid-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin: 0;
+    aspect-ratio: 4/3;
+  }
+
+  /* Horizontal rules */
+  article .prose hr {
+    border: 0;
+    border-top: 1px solid rgb(229 231 235);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  /* Tables */
+  article .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  article .prose th, article .prose td {
+    padding: 0.75rem;
+    border: 1px solid rgb(229 231 235);
+    text-align: left;
+  }
+
+  article .prose th {
+    background-color: rgb(249 250 251);
+    font-weight: 600;
+  }
+
+  article .prose tr:nth-child(even) {
+    background-color: rgb(249 250 251);
+  }
+
+  /* Task lists */
+  article .prose input[type="checkbox"] {
+    margin-right: 0.5rem;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    article .prose {
+      font-size: 1rem;
+    }
+
+    article .prose h1 {
+      font-size: 1.875rem;
+    }
+
+    article .prose h2 {
+      font-size: 1.5rem;
+    }
+
+    article .prose h3 {
+      font-size: 1.25rem;
+    }
+
+    /* Stack images on mobile */
+    article .prose .image-grid-2,
+    article .prose .image-grid-3,
+    article .prose .image-grid-4 {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

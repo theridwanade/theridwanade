@@ -102,10 +102,14 @@ export function getAllPosts(postsDir: string) {
  * Robust markdown to HTML conversion using markdown-it
  */
 export function markdownToHtml(md: string): string {
+  console.log('=== MARKDOWN INPUT ===');
+  console.log(md.substring(0, 500));
+  
   const mdParser = new MarkdownIt({
     html: true,
     linkify: true,
-    typographer: true
+    typographer: true,
+    breaks: false
   });
 
   const normalizeSlug = (target: string) => target
@@ -125,10 +129,84 @@ export function markdownToHtml(md: string): string {
     return `[${display}](${toBlogHref(slug)})`;
   });
 
+  console.log('=== AFTER WIKILINK CONVERSION ===');
+  console.log(preprocessed.substring(0, 500));
+
   // Normalize any markdown links that still point to /posts/ to /blogs/
   const normalizedLinks = preprocessed.replace(/\]\((?:\/)?posts\//g, '](/blogs/');
 
+  console.log('=== AFTER LINK NORMALIZATION ===');
+  console.log(normalizedLinks.substring(0, 500));
+
   // Render to HTML
-  const html = mdParser.render(normalizedLinks);
+  let html = mdParser.render(normalizedLinks);
+  
+  console.log('=== AFTER MARKDOWN-IT RENDER ===');
+  console.log(html.substring(0, 500));
+  
+  // Post-process: Group consecutive images into grid containers
+  html = groupConsecutiveImages(html);
+  
+  console.log('=== AFTER IMAGE GROUPING ===');
+  console.log(html.substring(0, 1000));
+  
   return html;
+}
+
+/**
+ * Group consecutive images into responsive grid layouts
+ */
+function groupConsecutiveImages(html: string): string {
+  console.log('=== GROUPING IMAGES - INPUT LENGTH ===', html.length);
+  
+  const lines = html.split('\n');
+  const result: string[] = [];
+  let imageBuffer: string[] = [];
+  
+  const flushImages = () => {
+    if (imageBuffer.length === 0) return;
+    
+    console.log(`Flushing ${imageBuffer.length} images`);
+    
+    if (imageBuffer.length === 1) {
+      // Single image, no grid needed
+      result.push(imageBuffer[0]);
+    } else {
+      // Multiple images - create grid
+      const gridClass = imageBuffer.length === 2 ? 'image-grid-2' :
+                        imageBuffer.length === 3 ? 'image-grid-3' :
+                        'image-grid-4';
+      console.log(`Creating grid: ${gridClass}`);
+      result.push(`<div class="${gridClass}">`);
+      imageBuffer.forEach(img => result.push(img));
+      result.push('</div>');
+    }
+    imageBuffer = [];
+  };
+  
+  for (const line of lines) {
+    const trimmed = line.trim();
+    
+    // Check if this line is a paragraph containing only an image
+    if (trimmed.startsWith('<p><img') && trimmed.endsWith('</p>')) {
+      // Extract just the img tag
+      const imgMatch = trimmed.match(/<img[^>]+>/);
+      if (imgMatch) {
+        console.log('Found image:', imgMatch[0].substring(0, 80));
+        imageBuffer.push(imgMatch[0]);
+        continue;
+      }
+    }
+    
+    // Not an image line, flush buffer and add current line
+    flushImages();
+    if (trimmed) result.push(line);
+  }
+  
+  // Flush any remaining images
+  flushImages();
+  
+  console.log('=== GROUPING COMPLETE - OUTPUT LENGTH ===', result.join('\n').length);
+  
+  return result.join('\n');
 }

@@ -4,17 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "2f59ec707fbe4d4a",
+        "id": "3b95a57bb8aa8c37",
         "type": "tabs",
         "children": [
           {
-            "id": "21391f88ad6bc570",
+            "id": "111f859b8e1629ab",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "posts/markdown-test.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "markdown-test"
             }
           }
         ]
@@ -90,6 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "posts/markdown-test.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -99,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for markdown-test"
             }
           },
           {
@@ -167,11 +182,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21391f88ad6bc570",
+  "active": "111f859b8e1629ab",
   "lastOpenFiles": [
     "bases/Home.base",
+    "posts/markdown-test.md",
     "Untitled.md",
-    "posts/Untitled.md",
     "docs/sourcetree-and-git-setup/index.md",
     "docs/api.md",
     "posts/getting-started.md"
