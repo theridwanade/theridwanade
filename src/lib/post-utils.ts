@@ -189,6 +189,42 @@ function groupConsecutiveImages(html: string): string {
   
   // Flush any remaining images
   flushImages();
-  
+
   return result.join('\n');
 }
+
+/**
+ * Get the latest N posts sorted by date
+ */
+export function getLatestPosts(postsDir: string, limit: number = 3) {
+  const posts = getAllPosts(postsDir);
+  return posts
+    .sort((a, b) => {
+      const dateA = a.frontmatter?.date ? new Date(a.frontmatter.date).getTime() : 0;
+      const dateB = b.frontmatter?.date ? new Date(b.frontmatter.date).getTime() : 0;
+      return dateB - dateA; // Newest first
+    })
+    .slice(0, limit);
+}
+
+/**
+ * Get a featured post (first non-draft post with featured flag or newest)
+ */
+export function getFeaturedPost(postsDir: string) {
+  const posts = getAllPosts(postsDir);
+  
+  // Look for a post marked as featured
+  let featured = posts.find(p => p.frontmatter?.featured === true || p.frontmatter?.featured === 'true');
+  
+  // If no featured post, get the newest one
+  if (!featured) {
+    featured = posts.sort((a, b) => {
+      const dateA = a.frontmatter?.date ? new Date(a.frontmatter.date).getTime() : 0;
+      const dateB = b.frontmatter?.date ? new Date(b.frontmatter.date).getTime() : 0;
+      return dateB - dateA;
+    })[0];
+  }
+  
+  return featured;
+}
+

@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "posts/markdown-test.md",
+                "file": "posts/obsidian-embeds-demo.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,7 +28,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "markdown-test"
+              "title": "obsidian-embeds-demo"
             }
           }
         ]
@@ -104,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/markdown-test.md",
+                "file": "posts/obsidian-embeds-demo.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for markdown-test"
+              "title": "Backlinks for obsidian-embeds-demo"
             }
           },
           {
@@ -184,8 +184,10 @@
   },
   "active": "111f859b8e1629ab",
   "lastOpenFiles": [
-    "bases/Home.base",
+    "posts/vault-cms-guide.md",
     "posts/markdown-test.md",
+    "posts/formatting-reference.md",
+    "bases/Home.base",
     "Untitled.md",
     "docs/sourcetree-and-git-setup/index.md",
     "docs/api.md",
