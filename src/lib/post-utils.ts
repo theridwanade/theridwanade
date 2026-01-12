@@ -125,7 +125,16 @@ export function markdownToHtml(md: string): string {
   
   // Wikilinks
   html = html.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, text) => {
-    const displayText = text || target;
+    const displayText = (text || target).replace(/[&<>"']/g, (char) => {
+      const entities: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      };
+      return entities[char] || char;
+    });
     const slug = target.replace(/^posts\//, '').replace(/\.md$/, '').replace(/\/index$/, '');
     return `<a href="/posts/${slug}" class="text-blue-600 hover:underline">${displayText}</a>`;
   });

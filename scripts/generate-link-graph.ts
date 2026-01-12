@@ -130,7 +130,7 @@ function extractInternalLinks(content: string, currentPostId: string): Array<{ t
   const links: Array<{ targetId: string; linkText: string; fullMatch: string }> = [];
 
   // Extract wikilinks: [[target]] or [[target|text]]
-  const wikilinkRegex = /\[\[([^\]|#]+)(?:\|([^\]]+))?\]\]/g;
+  const wikilinkRegex = /\[\[([^\]#|]+)(?:\|([^\]]+))?\]\]/g;
   let match;
 
   while ((match = wikilinkRegex.exec(content)) !== null) {
@@ -384,9 +384,7 @@ function main() {
   console.log(`✅ Link graph written to ${outputFile}`);
 }
 
-// Run if called directly
-if (import.meta.url === `file://${process.argv[1]}`) {
-  main();
-}
+// Run main function
+main();
 
 export { buildLinkGraph, loadAllPosts, extractInternalLinks, generateExcerpt };
