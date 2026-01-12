@@ -136,7 +136,7 @@ export function markdownToHtml(md: string): string {
       return entities[char] || char;
     });
     const slug = target.replace(/^posts\//, '').replace(/\.md$/, '').replace(/\/index$/, '');
-    return `<a href="/posts/${slug}" class="text-blue-600 hover:underline">${displayText}</a>`;
+    return `<a href="/blogs/${slug}" class="text-blue-600 hover:underline">${displayText}</a>`;
   });
   
   // Paragraphs

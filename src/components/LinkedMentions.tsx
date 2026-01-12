@@ -67,7 +67,7 @@ export function LinkedMentions({ postId, compact = false, className = '' }: Link
               <div key={`${mention.sourcePostId}-${mention.linkText}-${idx}`} className="border-l-2 border-gray-200 pl-4">
                 <div className="flex items-start justify-between gap-4 mb-2">
                   <a
-                    href={`/posts/${mention.sourcePostId}`}
+                    href={`/blogs/${mention.sourcePostId}`}
                     className="text-lg font-semibold text-blue-600 hover:text-blue-800 hover:underline transition-colors"
                   >
                     {mention.sourcePostTitle}

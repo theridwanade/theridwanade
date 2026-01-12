@@ -1,130 +1,30 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import { LinkedMentions } from '@/components/LinkedMentions';
-import { getAllPosts, markdownToHtml } from '@/lib/post-utils';
+import { getAllPosts } from '@/lib/post-utils';
 import path from 'path';
 
-// Get all post slugs for static generation
 export async function getStaticPaths() {
   const postsDir = path.join(process.cwd(), 'src/contents/posts');
   const posts = getAllPosts(postsDir);
-  
-  return posts.map(post => ({
-    params: { slug: post.slug },
-    props: post
-  }));
+  return posts.map((post) => ({ params: { slug: post.slug } }));
 }
 
-const { postId, frontmatter, content } = Astro.props;
-const htmlContent = markdownToHtml(content);
+const { slug } = Astro.params;
 ---
 
-<Layout>
-  <article class="max-w-4xl mx-auto px-4 py-8">
-    {/* Header */}
-    <header class="mb-8">
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-        {frontmatter.title || postId}
-      </h1>
-      
-      {frontmatter.description && (
-        <p class="text-xl text-gray-600 mb-4">
-          {frontmatter.description}
-        </p>
-      )}
-      
-      {frontmatter.date && (
-        <time class="text-sm text-gray-500">
-          {new Date(frontmatter.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-          })}
-        </time>
-      )}
-      
-      {frontmatter.tags && (
-        <div class="flex flex-wrap gap-2 mt-4">
-          {(Array.isArray(frontmatter.tags) ? frontmatter.tags : [frontmatter.tags]).map((tag: string) => (
-            <span class="px-3 py-1 text-sm bg-gray-100 text-gray-700 rounded-full">
-              {tag}
-            </span>
-          ))}
-        </div>
-      )}
-    </header>
-
-    {/* Content */}
-    <div class="prose prose-lg max-w-none" set:html={htmlContent} />
-
-    {/* Linked Mentions Section */}
-    <div class="mt-16">
-      <LinkedMentions postId={postId} client:load />
-    </div>
-  </article>
-</Layout>
-
-<style>
-  .prose {
-    color: rgb(31 41 55);
-    line-height: 1.625;
-  }
-  
-  .prose h1 {
-    font-size: 1.875rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: rgb(17 24 39);
-  }
-  
-  .prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
-    color: rgb(17 24 39);
-  }
-  
-  .prose h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-    color: rgb(17 24 39);
-  }
-  
-  .prose p {
-    margin-bottom: 1rem;
-  }
-  
-  .prose pre {
-    background-color: rgb(243 244 246);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    overflow-x: auto;
-    margin-bottom: 1rem;
-  }
-  
-  .prose code {
-    background-color: rgb(243 244 246);
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
-    font-family: monospace;
-  }
-  
-  .prose pre code {
-    background-color: transparent;
-    padding: 0;
-  }
-  
-  .prose ul, .prose ol {
-    margin-bottom: 1rem;
-    margin-left: 1.5rem;
-  }
-  
-  .prose li {
-    margin-bottom: 0.5rem;
-  }
-</style>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="refresh" content={`0; url=/blogs/${slug}`} />
+    <title>Redirecting…</title>
+    <script>
+      {`window.location.replace('/blogs/${slug}')`}
+    </script>
+  </head>
+  <body class="p-8 text-center text-gray-600">
+    <p>
+      This page has moved to
+      <a class="text-blue-600 underline" href={`/blogs/${slug}`}>/blogs/{slug}</a>.
+    </p>
+  </body>
+</html>
