@@ -1,0 +1,141 @@
+{
+  "backlinks": {
+    "formatting-reference": [
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "reference guide",
+        "excerpt": "Quick Start:\nEdit  to customize your site settings\nCreate content in  using standard markdown\nDeploy when ready\n\nNext Steps:\nRead the setup guide for...",
+        "context": "...t Steps:**\nRead the [setup guide](docs/configuration.md) for detailed configuration\nExplore the [reference guide](formatting-reference.md) for markdown features\nCustomize your theme and layout in \n\nEssential Configurat..."
+      },
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "Formatting Reference",
+        "excerpt": "Smart Linking\nWikilinks (Obsidian users): \nStandard links (all users): \n\nContent Types\nPosts - Blog articles with tags and linked mentions\nPages - Sta...",
+        "context": ".... Read the full guide - [Complete Setup Guide](docs/configuration.md)\nExplore features - [Formatting Reference](formatting-reference.md)\nStart writing - Create your first post\n\nNeed Help?\nComplete Setup Guide: [Configur..."
+      },
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "Formatting Reference",
+        "excerpt": "Smart Linking\nWikilinks (Obsidian users): \nStandard links (all users): \n\nContent Types\nPosts - Blog articles with tags and linked mentions\nPages - Sta...",
+        "context": ".... Read the full guide - [Complete Setup Guide](docs/configuration.md)\nExplore features - [Formatting Reference](formatting-reference.md)\nStart writing - Create your first post\n\nNeed Help?\nComplete Setup Guide: [Configur..."
+      }
+    ],
+    "getting-started": [
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Getting Started",
+        "excerpt": "For example: Getting Started or Astro Suite Obsidian Vault Guide (Astro Modular)",
+        "context": "...n create internal links using double brackets (wikilinks) or with standard markdown. \n\nFor example: [[getting-started|Getting Started]] or [Astro Suite Obsidian Vault Guide (Astro Modular)](vault-cms-guide.md).\n\n```markdown\nFor example..."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Getting Started",
+        "excerpt": "For example: Getting Started or Astro Suite Obsidian Vault Guide (Astro Modular)",
+        "context": "...n create internal links using double brackets (wikilinks) or with standard markdown. \n\nFor example: [[getting-started|Getting Started]] or [Astro Suite Obsidian Vault Guide (Astro Modular)](vault-cms-guide.md).\n\n```markdown\nFor example..."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Choose Your Workflow",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...link with an anchor formatted in 4 different ways (both Obsidian and standard Astro syntax work):\n\n[Choose Your Workflow](posts/getting-started.md#Choose%20Your%20Workflow)\n[Choose Your Workflow](posts/getting-started#Choose%20Your%20Workflow)\n[[posts/getting-started#Choo..."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Choose Your Workflow",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...dard Astro syntax work):\n\n[Choose Your Workflow](posts/getting-started.md#Choose%20Your%20Workflow)\n[Choose Your Workflow](posts/getting-started#Choose%20Your%20Workflow)\n[[posts/getting-started#Choose Your Workflow|Choose Your Workflow]]\n[Choose Your Workflow](/posts/g..."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Choose Your Workflow",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...arted#Choose%20Your%20Workflow)\n[[posts/getting-started#Choose Your Workflow|Choose Your Workflow]]\n[Choose Your Workflow](/posts/getting-started#choose-your-workflow)\n\n\nHere's a relative link: [Obsidian Embeds Demo](obsidian-embeds-demo.md)\nReference Links\n\nThis..."
+      }
+    ],
+    "obsidian-embeds-demo": [
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Obsidian Embeds Demo",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...tro Modular)](vault-cms-guide.md).\n\n\n\nHere's an internal link with an anchor: [[sample-folder-based-post/index#Benefits of Folder-B..."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Obsidian Embeds Demo",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...low]]\n[Choose Your Workflow](/posts/getting-started#choose-your-workflow)\n\n\nHere's a relative link: [Obsidian Embeds Demo](obsidian-embeds-demo.md)\nReference Links\n\nThis is a [reference link][1] and this is another [reference link][markdown]...."
+      },
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Obsidian Embeds Demo",
+        "excerpt": "Here's an internal link with an anchor: Benefits of Folder-Based Approach\n\nHere's the same internal link with an anchor formatted in 4 different ways...",
+        "context": "...: Start lines with \nCallouts: \nHorizontal rule**: \n\nFurther reading: [Obsidian Embeds Demo](posts/obsidian-embeds-demo.md)"
+      }
+    ],
+    "sample-folder-based-post": [],
+    "vault-cms-guide": [
+      {
+        "sourcePostId": "formatting-reference",
+        "sourcePostTitle": "Formatting Reference",
+        "linkText": "Astro Suite Obsidian Vault Guide (Astro Modular)",
+        "excerpt": "For example: Getting Started or Astro Suite Obsidian Vault Guide (Astro Modular)",
+        "context": "...ackets (wikilinks) or with standard markdown. \n\nFor example: [[getting-started|Getting Started]] or [Astro Suite Obsidian Vault Guide (Astro Modular)](vault-cms-guide.md).\n\n```markdown\nFor example: [[getting-started|Getting Started]] or [Obsidian Embeds Demo](obsidian-e..."
+      },
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "Obsidian Vault Guide",
+        "excerpt": "Quick Start:\nOpen folder as vault: Navigate to  in Obsidian\nTrust the author and enable the preconfigured plugins\nUse the Astro Modular Settings wizar...",
+        "context": "...fully\nPreconfigured plugins & hotkeys: all optimized for blogging\n\nNext Steps:\nRead the [Obsidian Vault Guide](vault-cms-guide.md) for detailed setup\nUse the Astro Modular Settings plugin to customize your theme and preferen..."
+      },
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "Obsidian Vault Guide",
+        "excerpt": "Quick Start:\nOpen folder as vault: Navigate to  in Obsidian\nTrust the author and enable the preconfigured plugins\nUse the Astro Modular Settings wizar...",
+        "context": "...fully\nPreconfigured plugins & hotkeys: all optimized for blogging\n\nNext Steps:\nRead the [Obsidian Vault Guide](vault-cms-guide.md) for detailed setup\nUse the Astro Modular Settings plugin to customize your theme and preferen..."
+      },
+      {
+        "sourcePostId": "getting-started",
+        "sourcePostTitle": "Getting Started",
+        "linkText": "Obsidian Vault Guide",
+        "excerpt": "Quick Start:\nOpen folder as vault: Navigate to  in Obsidian\nTrust the author and enable the preconfigured plugins\nUse the Astro Modular Settings wizar...",
+        "context": "...fully\nPreconfigured plugins & hotkeys: all optimized for blogging\n\nNext Steps:\nRead the [Obsidian Vault Guide](vault-cms-guide.md) for detailed setup\nUse the Astro Modular Settings plugin to customize your theme and preferen..."
+      }
+    ]
+  },
+  "forwardlinks": {
+    "formatting-reference": [
+      "getting-started",
+      "vault-cms-guide",
+      "obsidian-embeds-demo"
+    ],
+    "getting-started": [
+      "vault-cms-guide",
+      "formatting-reference"
+    ],
+    "obsidian-embeds-demo": [],
+    "sample-folder-based-post": [],
+    "vault-cms-guide": []
+  },
+  "allPostIds": [
+    "formatting-reference",
+    "getting-started",
+    "obsidian-embeds-demo",
+    "sample-folder-based-post",
+    "vault-cms-guide"
+  ],
+  "buildTime": "2026-01-12T14:48:32.355Z",
+  "totalLinks": 15
+}
