@@ -252,6 +252,44 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
     height: auto;
   }
 
+  /* Media embeds */
+  article .prose .embed-wrapper {
+    margin: 1.5rem 0;
+    width: 100%;
+  }
+
+  article .prose .embed-video video,
+  article .prose .embed-audio audio,
+  article .prose .embed-pdf iframe {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(229 231 235);
+    background: rgb(248 250 252);
+  }
+
+  article .prose .embed-video video {
+    max-height: 480px;
+  }
+
+  article .prose .embed-pdf iframe {
+    height: 720px;
+  }
+
+  article .prose .embed-caption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: rgb(75 85 99);
+  }
+
+  article .prose .embed-actions {
+    margin-top: 0.5rem;
+  }
+
+  article .prose .embed-actions a {
+    color: rgb(37 99 235);
+    font-weight: 500;
+  }
+
   /* Multi-image grid layouts */
   article .prose .image-grid-2,
   article .prose .image-grid-3,
@@ -318,6 +356,46 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
   /* Task lists */
   article .prose input[type="checkbox"] {
     margin-right: 0.5rem;
+  }
+
+  /* Embeds */
+  article .embed-wrapper {
+    margin: 1.5rem 0;
+  }
+
+  article .embed-video video,
+  article .embed-audio audio,
+  article .embed-pdf iframe {
+    width: 100%;
+    border: 1px solid rgb(229 231 235);
+    border-radius: 0.75rem;
+    background: rgb(248 250 252);
+  }
+
+  article .embed-video video {
+    max-height: 480px;
+  }
+
+  article .embed-audio audio {
+    height: 48px;
+  }
+
+  article .embed-pdf iframe {
+    min-height: 600px;
+  }
+
+  article .embed-caption {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgb(75 85 99);
+  }
+
+  article .embed-actions a {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: rgb(37 99 235);
+    text-decoration: underline;
   }
 
   /* Breadcrumb Navigation */

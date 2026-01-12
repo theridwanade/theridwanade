@@ -119,9 +119,12 @@ export function markdownToHtml(md: string): string {
 
   const toBlogHref = (slug: string) => `/blogs/${slug}`;
 
+  // First handle media embeds like ![[attachments/video.mp4|Title]]
+  const withMediaEmbeds = replaceMediaEmbeds(md, toBlogHref);
+
   // Convert Obsidian-style wikilinks to markdown links before parsing
   const wikilinkPattern = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
-  const preprocessed = md.replace(wikilinkPattern, (_match, target, text) => {
+  const preprocessed = withMediaEmbeds.replace(wikilinkPattern, (_match, target, text) => {
     const slug = normalizeSlug(String(target));
     const display = text ? String(text) : String(target);
     return `[${display}](${toBlogHref(slug)})`;
@@ -191,6 +194,54 @@ function groupConsecutiveImages(html: string): string {
   flushImages();
 
   return result.join('\n');
+}
+
+/**
+ * Replace Obsidian-style media embeds with HTML5 video/audio/pdf embeds
+ */
+function replaceMediaEmbeds(md: string, toBlogHref: (slug: string) => string): string {
+  const mediaPattern = /!\[\[(.+?)(?:\|([^\]]+))?\]\]/g;
+
+  const normalizePath = (target: string) => {
+    // Strip leading folders and ensure /blogs prefix
+    const cleaned = target
+      .replace(/^posts\//, '')
+      .replace(/^blogs\//, '')
+      .replace(/^\//, '')
+      .replace(/\/index$/, '');
+    return `${toBlogHref(cleaned)}`;
+  };
+
+  return md.replace(mediaPattern, (_match, targetRaw, titleRaw) => {
+    const target = String(targetRaw);
+    const title = titleRaw ? String(titleRaw) : '';
+
+    // Split anchor (e.g., document.pdf#page=3)
+    const [pathPart, anchorPart] = target.split('#');
+    const extMatch = pathPart.match(/\.([a-zA-Z0-9]+)$/);
+    if (!extMatch) return _match; // not a file, leave untouched
+
+    const ext = extMatch[1].toLowerCase();
+    const srcBase = normalizePath(pathPart);
+    const src = anchorPart ? `${srcBase}#${anchorPart}` : srcBase;
+
+    if (['mp4', 'webm', 'mov', 'm4v'].includes(ext)) {
+      const type = ext === 'mov' ? 'video/quicktime' : `video/${ext === 'm4v' ? 'mp4' : ext}`;
+      return `<div class="embed-wrapper embed-video"><video controls preload="metadata"><source src="${src}" type="${type}">${title || 'Your browser does not support the video tag.'}</video>${title ? `<div class="embed-caption">${title}</div>` : ''}</div>`;
+    }
+
+    if (['mp3', 'wav', 'ogg', 'm4a'].includes(ext)) {
+      const type = ext === 'wav' ? 'audio/wav' : ext === 'm4a' ? 'audio/mp4' : `audio/${ext}`;
+      return `<div class="embed-wrapper embed-audio"><audio controls preload="metadata"><source src="${src}" type="${type}">${title || 'Your browser does not support the audio tag.'}</audio>${title ? `<div class="embed-caption">${title}</div>` : ''}</div>`;
+    }
+
+    if (['pdf'].includes(ext)) {
+      return `<div class="embed-wrapper embed-pdf"><iframe src="${src}" title="${title || 'Document'}" loading="lazy"></iframe><div class="embed-actions"><a href="${src}" target="_blank" rel="noopener">Open</a></div></div>`;
+    }
+
+    // Fallback: return as link
+    return `[${title || target}](${src})`;
+  });
 }
 
 /**
