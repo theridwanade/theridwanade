@@ -8,6 +8,44 @@ const postsDir = path.join(process.cwd(), 'src/contents/blogs');
 const latestPosts = getLatestPosts(postsDir, 3);
 const featuredPost = getFeaturedPost(postsDir);
 
+// JSON-LD Schemas
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://theridwanade.me/#person",
+  "name": "Ridwan Oyeniyi",
+  "url": "https://theridwanade.me",
+  "email": "ridwan@theridwanade.me",
+  "jobTitle": "Software & Hardware Developer",
+  "image": "https://theridwanade.me/me.jpg",
+  "sameAs": [
+    "https://twitter.com/theridwanade",
+    "https://github.com/theridwanade"
+  ],
+  "knowsAbout": [
+    "Software Development",
+    "Hardware Development",
+    "Web Development",
+    "Full Stack Development"
+  ]
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://theridwanade.me/#website",
+  "name": "Ridwan Oyeniyi",
+  "url": "https://theridwanade.me",
+  "description": "Personal website and blog of Ridwan Oyeniyi, a Software & Hardware Developer",
+  "author": personSchema,
+  "publisher": personSchema,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://theridwanade.me/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+};
+
 // Helper to extract image from wikilink
 const extractImage = (imageStr: string) => {
   if (!imageStr) return null;
@@ -17,6 +55,10 @@ const extractImage = (imageStr: string) => {
 ---
 
 <Layout>
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    
     <section class="flex flex-col-reverse md:flex-row items-center justify-between min-h-[80vh] px-4 max-w-5xl mx-auto gap-8 md:gap-12">
         
         {/* Left Side: Text */}

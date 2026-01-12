@@ -2,6 +2,7 @@
 import Layout from '@/layouts/Layout.astro';
 import { LinkedMentions } from '@/components/LinkedMentions';
 import { getAllPosts, markdownToHtml, calculateReadingTime, formatTags } from '@/lib/post-utils';
+import { getBlogPostSchema, getPersonSchema } from '@/lib/schema';
 import path from 'path';
 
 export async function getStaticPaths() {
@@ -25,6 +26,38 @@ const pageTitle = frontmatter?.title || postId;
 const pageDescription = frontmatter?.description || '';
 const ogImage = imagePath || '/og-default.jpg';
 const keywords = tags.join(', ');
+const publishDate = frontmatter?.date ? new Date(frontmatter.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+
+// JSON-LD Schema
+const blogSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": `https://theridwanade.me/blogs/${postId}`,
+  "headline": pageTitle,
+  "description": pageDescription,
+  "image": `https://theridwanade.me${ogImage}`,
+  "datePublished": publishDate,
+  "dateModified": publishDate,
+  "author": {
+    "@type": "Person",
+    "name": "Ridwan Oyeniyi",
+    "email": "ridwan@theridwanade.me",
+    "url": "https://theridwanade.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ridwan Oyeniyi",
+    "url": "https://theridwanade.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://theridwanade.me/blogs/${postId}`
+  },
+  "keywords": keywords,
+  "wordCount": content.split(/\s+/).length,
+  "articleSection": "Blog",
+  "inLanguage": "en-US"
+};
 ---
 
 <Layout
@@ -34,6 +67,9 @@ const keywords = tags.join(', ');
   ogImage={ogImage}
   canonicalUrl={Astro.url.pathname}
 >
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(blogSchema)} />
+  
   <article class="max-w-4xl mx-auto px-4 py-8">
     {/* Breadcrumb Navigation */}
     <nav class="mb-8" aria-label="Breadcrumb">

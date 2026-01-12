@@ -1,0 +1,28 @@
+# robots.txt for theridwanade.me
+# Allow search engines to crawl the site
+
+User-agent: *
+Allow: /
+Allow: /blogs/
+Allow: /projects/
+Allow: /docs/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Specific rules for search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Point to sitemap
+Sitemap: https://theridwanade.me/sitemap.xml
+Sitemap: https://theridwanade.me/rss.xml
+
+# Crawl delay (time between requests in seconds)
+Crawl-delay: 1

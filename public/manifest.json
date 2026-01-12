@@ -1,0 +1,37 @@
+{
+  "name": "Ridwan Oyeniyi - Personal Website & Blog",
+  "short_name": "theridwanade",
+  "description": "Personal website and blog of Ridwan Oyeniyi, a Software & Hardware Developer",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["blog", "technology", "portfolio"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "View Blog",
+      "short_name": "Blog",
+      "description": "Read my latest articles",
+      "url": "/blogs",
+      "icons": []
+    },
+    {
+      "name": "View Projects",
+      "short_name": "Projects",
+      "description": "Check out my projects",
+      "url": "/projects",
+      "icons": []
+    }
+  ]
+}

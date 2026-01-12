@@ -29,6 +29,7 @@ const fullOgImage = new URL(ogImage, Astro.site || Astro.url.origin).toString();
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="manifest" href="/manifest.json" />
 		<meta name="generator" content={Astro.generator} />
 		
 		<!-- Primary Meta Tags -->
@@ -51,6 +52,10 @@ const fullOgImage = new URL(ogImage, Astro.site || Astro.url.origin).toString();
 		<meta property="twitter:title" content={fullTitle} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={fullOgImage} />
+		
+		<!-- Feed Links for RSS/Atom -->
+		<link rel="alternate" type="application/rss+xml" title="Blog Feed (RSS)" href="/rss.xml" />
+		<link rel="alternate" type="application/atom+xml" title="Blog Feed (Atom)" href="/atom.xml" />
 	</head>
 	<body>
 		<header>

@@ -1,0 +1,7 @@
+Contact: security@theridwanade.me
+Contact: mailto:ridwan@theridwanade.me
+Expires: 2027-01-13T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://theridwanade.me/.well-known/security.txt
+Policy: https://theridwanade.me/security-policy
+Acknowledgments: https://theridwanade.me/security-acknowledgments
