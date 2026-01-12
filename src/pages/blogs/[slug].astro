@@ -12,6 +12,11 @@ export async function getStaticPaths() {
 
 const { postId, frontmatter, content } = Astro.props;
 const htmlContent = markdownToHtml(content);
+
+// Extract image path from wikilink format [[attachments/image.png]] or use direct path
+const imageMatch = frontmatter?.image?.match(/\[\[(.+?)\]\]/);
+const imagePath = imageMatch ? `/posts/${imageMatch[1]}` : frontmatter?.image;
+const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCoverImage === 'true';
 ---
 
 <Layout>
@@ -44,6 +49,17 @@ const htmlContent = markdownToHtml(content);
         </div>
       )}
     </header>
+
+    {/* Featured Image */}
+    {imagePath && !hideCover && (
+      <div class="mb-8">
+        <img 
+          src={imagePath} 
+          alt={frontmatter?.imageAlt || frontmatter?.title || 'Featured image'}
+          class="w-full h-auto rounded-lg shadow-md"
+        />
+      </div>
+    )}
 
     {/* Content */}
     <div class="prose prose-lg max-w-none" set:html={htmlContent} />

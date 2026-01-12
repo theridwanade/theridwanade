@@ -3,9 +3,10 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "npm run build:graph && astro build",
+    "dev": "npm run copy:post-assets && astro dev",
+    "build": "npm run copy:post-assets && npm run build:graph && astro build",
     "build:graph": "tsx scripts/generate-link-graph.ts",
+    "copy:post-assets": "node scripts/copy-post-assets.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

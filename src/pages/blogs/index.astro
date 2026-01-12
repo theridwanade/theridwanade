@@ -10,22 +10,41 @@ const posts = getAllPosts(postsDir);
 <Layout>
   <section class="max-w-5xl mx-auto px-4 py-10">
     <h1 class="text-3xl md:text-4xl font-bold mb-8">Blog</h1>
-    <ul class="space-y-6">
-      {posts.map((post) => (
-        <li class="border-b border-gray-100 pb-6">
-          <a href={`/blogs/${post.slug}`} class="text-xl font-semibold text-blue-600 hover:underline">
-            {post.frontmatter?.title ?? post.slug}
-          </a>
-          {post.frontmatter?.description && (
-            <p class="text-gray-600 mt-1">{post.frontmatter.description}</p>
-          )}
-          <div class="text-sm text-gray-400 mt-2">
-            {post.frontmatter?.date && new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-              year: 'numeric', month: 'long', day: 'numeric'
-            })}
-          </div>
-        </li>
-      ))}
+    <ul class="space-y-8">
+      {posts.map((post) => {
+        const imageMatch = post.frontmatter?.image?.match(/\[\[(.+?)\]\]/);
+        const imagePath = imageMatch ? `/posts/${imageMatch[1]}` : post.frontmatter?.image;
+        const hideCover = post.frontmatter?.hideCoverImage === true || post.frontmatter?.hideCoverImage === 'true';
+        
+        return (
+          <li class="border-b border-gray-100 pb-6">
+            <div class="flex gap-6">
+              {imagePath && !hideCover && (
+                <a href={`/blogs/${post.slug}`} class="shrink-0">
+                  <img 
+                    src={imagePath} 
+                    alt={post.frontmatter?.imageAlt || post.frontmatter?.title || 'Post image'}
+                    class="w-48 h-32 object-cover rounded-lg"
+                  />
+                </a>
+              )}
+              <div class="flex-1">
+                <a href={`/blogs/${post.slug}`} class="text-xl font-semibold text-blue-600 hover:underline">
+                  {post.frontmatter?.title ?? post.slug}
+                </a>
+                {post.frontmatter?.description && (
+                  <p class="text-gray-600 mt-1">{post.frontmatter.description}</p>
+                )}
+                <div class="text-sm text-gray-400 mt-2">
+                  {post.frontmatter?.date && new Date(post.frontmatter.date).toLocaleDateString('en-US', {
+                    year: 'numeric', month: 'long', day: 'numeric'
+                  })}
+                </div>
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   </section>
 </Layout>
