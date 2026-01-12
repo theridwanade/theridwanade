@@ -29,10 +29,10 @@ function main() {
   // project root is one level up from scripts/ when executed via npm scripts
   const projectRoot = path.resolve(__dirname, '..');
   const postsDir = path.join(projectRoot, 'src', 'contents', 'posts');
-  const publicPostsDir = path.join(projectRoot, 'public', 'posts');
+  const publicBlogsDir = path.join(projectRoot, 'public', 'blogs');
 
-  copyDirectory(postsDir, publicPostsDir);
-  console.log('Copied post assets to public/posts');
+  copyDirectory(postsDir, publicBlogsDir);
+  console.log('Copied post assets to public/blogs');
 }
 
 main();

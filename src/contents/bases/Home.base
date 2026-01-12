@@ -3,7 +3,7 @@ filters:
     - file.ext == "md"
 formulas:
   Slug: |-
-    if(file.folder == "posts", "/posts/" + file.name.replace(".md", ""), 
+    if(file.folder == "posts", "/blogs/" + file.name.replace(".md", ""), 
       if(file.folder == "pages", "/" + file.name.replace(".md", ""), 
         if(file.folder == "special", if(file.name.replace(".md", "") == "home", "/", "/" + file.name.replace(".md", "")), 
           if(file.folder == "projects", "/projects/" + file.name.replace(".md", ""), 
@@ -36,7 +36,7 @@ properties:
     displayName: Draft
 views:
   - type: bases-cms
-    name: Posts
+    name: Blogs
     filters:
       and:
         - file.folder.startsWith("posts")

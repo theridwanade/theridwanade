@@ -4,6 +4,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import MarkdownIt from 'markdown-it';
 
 export interface ParsedPost {
   frontmatter: any;
@@ -98,55 +99,36 @@ export function getAllPosts(postsDir: string) {
 }
 
 /**
- * Simple markdown to HTML conversion
+ * Robust markdown to HTML conversion using markdown-it
  */
 export function markdownToHtml(md: string): string {
-  let html = md;
-  
-  // Headers
-  html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
-  html = html.replace(/^## (.*$)/gim, '<h2>$1</h2>');
-  html = html.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-  
-  // Bold
-  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-  
-  // Italic
-  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
-  
-  // Code blocks
-  html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
-  
-  // Inline code
-  html = html.replace(/`(.*?)`/g, '<code>$1</code>');
-  
-  // Links - Markdown style
-  html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-blue-600 hover:underline">$1</a>');
-  
-  // Wikilinks
-  html = html.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, text) => {
-    const displayText = (text || target).replace(/[&<>"']/g, (char) => {
-      const entities: Record<string, string> = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#39;'
-      };
-      return entities[char] || char;
-    });
-    const slug = target.replace(/^posts\//, '').replace(/\.md$/, '').replace(/\/index$/, '');
-    return `<a href="/blogs/${slug}" class="text-blue-600 hover:underline">${displayText}</a>`;
+  const mdParser = new MarkdownIt({
+    html: true,
+    linkify: true,
+    typographer: true
   });
-  
-  // Paragraphs
-  html = html.split('\n\n').map(p => {
-    if (!p.trim()) return '';
-    if (p.startsWith('<h') || p.startsWith('<pre>') || p.startsWith('<ul>') || p.startsWith('<ol>')) {
-      return p;
-    }
-    return `<p>${p}</p>`;
-  }).join('\n');
-  
+
+  const normalizeSlug = (target: string) => target
+    .replace(/^posts\//, '')
+    .replace(/^blogs\//, '')
+    .replace(/^\//, '')
+    .replace(/\.md$/, '')
+    .replace(/\/index$/, '');
+
+  const toBlogHref = (slug: string) => `/blogs/${slug}`;
+
+  // Convert Obsidian-style wikilinks to markdown links before parsing
+  const wikilinkPattern = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
+  const preprocessed = md.replace(wikilinkPattern, (_match, target, text) => {
+    const slug = normalizeSlug(String(target));
+    const display = text ? String(text) : String(target);
+    return `[${display}](${toBlogHref(slug)})`;
+  });
+
+  // Normalize any markdown links that still point to /posts/ to /blogs/
+  const normalizedLinks = preprocessed.replace(/\]\((?:\/)?posts\//g, '](/blogs/');
+
+  // Render to HTML
+  const html = mdParser.render(normalizedLinks);
   return html;
 }

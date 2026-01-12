@@ -13,7 +13,7 @@ const posts = getAllPosts(postsDir);
     <ul class="space-y-8">
       {posts.map((post) => {
         const imageMatch = post.frontmatter?.image?.match(/\[\[(.+?)\]\]/);
-        const imagePath = imageMatch ? `/posts/${imageMatch[1]}` : post.frontmatter?.image;
+        const imagePath = imageMatch ? `/blogs/${imageMatch[1]}` : post.frontmatter?.image;
         const hideCover = post.frontmatter?.hideCoverImage === true || post.frontmatter?.hideCoverImage === 'true';
         
         return (

@@ -15,7 +15,7 @@ const htmlContent = markdownToHtml(content);
 
 // Extract image path from wikilink format [[attachments/image.png]] or use direct path
 const imageMatch = frontmatter?.image?.match(/\[\[(.+?)\]\]/);
-const imagePath = imageMatch ? `/posts/${imageMatch[1]}` : frontmatter?.image;
+const imagePath = imageMatch ? `/blogs/${imageMatch[1]}` : frontmatter?.image;
 const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCoverImage === 'true';
 ---
 
