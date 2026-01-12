@@ -102,8 +102,6 @@ export function getAllPosts(postsDir: string) {
  * Robust markdown to HTML conversion using markdown-it
  */
 export function markdownToHtml(md: string): string {
-  console.log('=== MARKDOWN INPUT ===');
-  console.log(md.substring(0, 500));
   
   const mdParser = new MarkdownIt({
     html: true,
@@ -129,26 +127,16 @@ export function markdownToHtml(md: string): string {
     return `[${display}](${toBlogHref(slug)})`;
   });
 
-  console.log('=== AFTER WIKILINK CONVERSION ===');
-  console.log(preprocessed.substring(0, 500));
 
   // Normalize any markdown links that still point to /posts/ to /blogs/
   const normalizedLinks = preprocessed.replace(/\]\((?:\/)?posts\//g, '](/blogs/');
 
-  console.log('=== AFTER LINK NORMALIZATION ===');
-  console.log(normalizedLinks.substring(0, 500));
-
   // Render to HTML
   let html = mdParser.render(normalizedLinks);
   
-  console.log('=== AFTER MARKDOWN-IT RENDER ===');
-  console.log(html.substring(0, 500));
   
   // Post-process: Group consecutive images into grid containers
   html = groupConsecutiveImages(html);
-  
-  console.log('=== AFTER IMAGE GROUPING ===');
-  console.log(html.substring(0, 1000));
   
   return html;
 }
@@ -157,7 +145,6 @@ export function markdownToHtml(md: string): string {
  * Group consecutive images into responsive grid layouts
  */
 function groupConsecutiveImages(html: string): string {
-  console.log('=== GROUPING IMAGES - INPUT LENGTH ===', html.length);
   
   const lines = html.split('\n');
   const result: string[] = [];
@@ -165,8 +152,6 @@ function groupConsecutiveImages(html: string): string {
   
   const flushImages = () => {
     if (imageBuffer.length === 0) return;
-    
-    console.log(`Flushing ${imageBuffer.length} images`);
     
     if (imageBuffer.length === 1) {
       // Single image, no grid needed
@@ -176,7 +161,6 @@ function groupConsecutiveImages(html: string): string {
       const gridClass = imageBuffer.length === 2 ? 'image-grid-2' :
                         imageBuffer.length === 3 ? 'image-grid-3' :
                         'image-grid-4';
-      console.log(`Creating grid: ${gridClass}`);
       result.push(`<div class="${gridClass}">`);
       imageBuffer.forEach(img => result.push(img));
       result.push('</div>');
@@ -205,8 +189,6 @@ function groupConsecutiveImages(html: string): string {
   
   // Flush any remaining images
   flushImages();
-  
-  console.log('=== GROUPING COMPLETE - OUTPUT LENGTH ===', result.join('\n').length);
   
   return result.join('\n');
 }
