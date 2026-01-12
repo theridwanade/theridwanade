@@ -1,7 +1,52 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
 ---
 
 <Layout>
+    <section class="flex flex-col-reverse md:flex-row items-center justify-between min-h-[80vh] px-4 max-w-5xl mx-auto gap-8 md:gap-12">
+        
+        {/* Left Side: Text */}
+        <div class="flex flex-col items-start max-w-2xl">
+            <span class="text-lg font-medium text-blue-600 mb-4">
+                Hi,
+            </span>
+
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-4">
+                I am Ridwan Oyeniyi.
+            </h1>
+
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-400 mb-6">
+                Software & Hardware Developer.
+            </h2>
+
+            <p class="text-xl text-gray-600 mb-8">
+                I build software and hardware.
+            </p>
+
+            <div class="flex flex-wrap gap-4">
+                <a 
+                    href="/contact" 
+                    class="px-6 py-3 bg-gray-900 text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                >
+                    Get in touch
+                </a>
+                <a 
+                    href="/blog" 
+                    class="px-6 py-3 border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors"
+                >
+                    Read my notes
+                </a>
+            </div>
+        </div>
+
+        {/* Right Side: Portrait Image */}
+        <div class="shrink-0">
+            <img 
+                src="/me.jpg" 
+                alt="Ridwan Oyeniyi" 
+                class="w-40 md:w-56 aspect-5/7 rounded-xl object-cover shadow-md"
+            />
+        </div>
+
+    </section>
 </Layout>
