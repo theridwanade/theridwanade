@@ -63,8 +63,8 @@ export function LinkedMentions({ postId, compact = false, className = '' }: Link
         </CardHeader>
         <CardContent>
           <div className="space-y-6">
-            {mentions.map((mention) => (
-              <div key={`${mention.sourcePostId}-${mention.linkText}-${mention.excerpt.substring(0, 20)}`} className="border-l-2 border-gray-200 pl-4">
+            {mentions.map((mention, idx) => (
+              <div key={`${mention.sourcePostId}-${mention.linkText}-${idx}`} className="border-l-2 border-gray-200 pl-4">
                 <div className="flex items-start justify-between gap-4 mb-2">
                   <a
                     href={`/posts/${mention.sourcePostId}`}

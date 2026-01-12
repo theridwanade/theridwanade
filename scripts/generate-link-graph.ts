@@ -308,6 +308,7 @@ function buildLinkGraph(posts: Post[]): LinkGraph {
   const backlinks: Record<string, LinkMention[]> = {};
   const forwardlinks: Record<string, string[]> = {};
   const allPostIds: string[] = posts.map(p => p.id);
+  const postIdSet = new Set(allPostIds); // Use Set for O(1) lookups
   let totalLinks = 0;
 
   // Initialize empty arrays for all posts
@@ -321,8 +322,8 @@ function buildLinkGraph(posts: Post[]): LinkGraph {
     const links = extractInternalLinks(sourcePost.content, sourcePost.id);
 
     for (const link of links) {
-      // Only add link if target post exists
-      if (!allPostIds.includes(link.targetId)) {
+      // Only add link if target post exists (O(1) lookup with Set)
+      if (!postIdSet.has(link.targetId)) {
         continue;
       }
 
