@@ -1,7 +1,7 @@
 ---
 import Layout from '@/layouts/Layout.astro';
 import { LinkedMentions } from '@/components/LinkedMentions';
-import { getAllPosts, markdownToHtml } from '@/lib/post-utils';
+import { getAllPosts, markdownToHtml, calculateReadingTime, formatTags } from '@/lib/post-utils';
 import path from 'path';
 
 export async function getStaticPaths() {
@@ -12,14 +12,28 @@ export async function getStaticPaths() {
 
 const { postId, frontmatter, content } = Astro.props;
 const htmlContent = markdownToHtml(content);
+const readingTime = calculateReadingTime(content);
+const tags = formatTags(frontmatter?.tags);
 
 // Extract image path from wikilink format [[attachments/image.png]] or use direct path
 const imageMatch = frontmatter?.image?.match(/\[\[(.+?)\]\]/);
 const imagePath = imageMatch ? `/blogs/${imageMatch[1]}` : frontmatter?.image;
 const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCoverImage === 'true';
+
+// SEO metadata
+const pageTitle = frontmatter?.title || postId;
+const pageDescription = frontmatter?.description || '';
+const ogImage = imagePath || '/og-default.jpg';
+const keywords = tags.join(', ');
 ---
 
-<Layout>
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={keywords}
+  ogImage={ogImage}
+  canonicalUrl={Astro.url.pathname}
+>
   <article class="max-w-4xl mx-auto px-4 py-8">
     {/* Breadcrumb Navigation */}
     <nav class="mb-8" aria-label="Breadcrumb">
@@ -52,15 +66,19 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
         <p class="text-xl text-gray-600 mb-4">{frontmatter.description}</p>
       )}
 
-      {frontmatter.date && (
-        <time class="text-sm text-gray-500">
-          {new Date(frontmatter.date).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-          })}
-        </time>
-      )}
+      <div class="flex items-center gap-3 text-sm text-gray-500">
+        {frontmatter.date && (
+          <time>
+            {new Date(frontmatter.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        )}
+        {frontmatter.date && readingTime && <span>•</span>}
+        {readingTime && <span>{readingTime} min read</span>}
+      </div>
 
       {frontmatter.tags && (
         <div class="flex flex-wrap gap-2 mt-4">

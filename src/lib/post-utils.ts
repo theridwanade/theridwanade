@@ -291,3 +291,22 @@ export function getFeaturedPost(postsDir: string) {
   return featured;
 }
 
+/**
+ * Calculate estimated reading time in minutes
+ */
+export function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const wordCount = content.trim().split(/\s+/).length;
+  const minutes = Math.ceil(wordCount / wordsPerMinute);
+  return minutes;
+}
+
+/**
+ * Format tags from frontmatter (handles both string and array)
+ */
+export function formatTags(tags: any): string[] {
+  if (!tags) return [];
+  if (Array.isArray(tags)) return tags.map(String);
+  return [String(tags)];
+}
+

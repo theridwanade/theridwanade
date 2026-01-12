@@ -1,6 +1,26 @@
 ---
 import Navbar from "@/components/Navbar"
 import "../styles/global.css"
+
+export interface Props {
+	title?: string;
+	description?: string;
+	keywords?: string;
+	ogImage?: string;
+	canonicalUrl?: string;
+}
+
+const {
+	title = 'Ridwan Oyeniyi',
+	description = 'Personal website and blog of Ridwan Oyeniyi',
+	keywords = '',
+	ogImage = '/og-default.jpg',
+	canonicalUrl = Astro.url.pathname
+} = Astro.props;
+
+const fullTitle = title === 'Ridwan Oyeniyi' ? title : `${title} | Ridwan Oyeniyi`;
+const fullUrl = new URL(canonicalUrl, Astro.site || Astro.url.origin).toString();
+const fullOgImage = new URL(ogImage, Astro.site || Astro.url.origin).toString();
 ---
 
 <!doctype html>
@@ -10,7 +30,27 @@ import "../styles/global.css"
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Ridwan Oyeniyi</title>
+		
+		<!-- Primary Meta Tags -->
+		<title>{fullTitle}</title>
+		<meta name="title" content={fullTitle} />
+		<meta name="description" content={description} />
+		{keywords && <meta name="keywords" content={keywords} />}
+		<link rel="canonical" href={fullUrl} />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={fullUrl} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={fullOgImage} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={fullUrl} />
+		<meta property="twitter:title" content={fullTitle} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={fullOgImage} />
 	</head>
 	<body>
 		<header>

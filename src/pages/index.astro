@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getLatestPosts, getFeaturedPost } from '@/lib/post-utils';
+import { getLatestPosts, getFeaturedPost, calculateReadingTime } from '@/lib/post-utils';
 import path from 'path';
 
 const year = new Date().getFullYear();
@@ -87,15 +87,19 @@ const extractImage = (imageStr: string) => {
                 {featuredPost.frontmatter.description}
               </p>
             )}
-            {featuredPost.frontmatter?.date && (
-              <p class="text-sm text-gray-500 mb-6">
-                {new Date(featuredPost.frontmatter.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </p>
-            )}
+            <div class="flex items-center gap-2 text-sm text-gray-500 mb-6">
+              {featuredPost.frontmatter?.date && (
+                <span>
+                  {new Date(featuredPost.frontmatter.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span>
+              )}
+              {featuredPost.frontmatter?.date && calculateReadingTime(featuredPost.content) && <span>•</span>}
+              {calculateReadingTime(featuredPost.content) && <span>{calculateReadingTime(featuredPost.content)} min read</span>}
+            </div>
             <a 
               href={`/blogs/${featuredPost.slug}`}
               class="inline-block px-6 py-2 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors"
@@ -142,18 +146,22 @@ const extractImage = (imageStr: string) => {
                       {post.frontmatter.description}
                     </p>
                   )}
-                  <div class="flex items-center justify-between">
-                    {post.frontmatter?.date && (
-                      <span class="text-xs text-gray-500">
-                        {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
-                          year: 'numeric',
-                          month: 'short',
-                          day: 'numeric'
-                        })}
-                      </span>
-                    )}
+                  <div class="flex items-center justify-between text-xs text-gray-500">
+                    <div class="flex items-center gap-2">
+                      {post.frontmatter?.date && (
+                        <span>
+                          {new Date(post.frontmatter.date).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      )}
+                      {post.frontmatter?.date && calculateReadingTime(post.content) && <span>•</span>}
+                      {calculateReadingTime(post.content) && <span>{calculateReadingTime(post.content)} min read</span>}
+                    </div>
                     {post.frontmatter?.tags && (
-                      <span class="text-xs px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+                      <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
                         {Array.isArray(post.frontmatter.tags) ? post.frontmatter.tags[0] : post.frontmatter.tags}
                       </span>
                     )}
