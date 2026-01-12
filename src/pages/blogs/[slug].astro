@@ -21,6 +21,27 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
 
 <Layout>
   <article class="max-w-4xl mx-auto px-4 py-8">
+    {/* Breadcrumb Navigation */}
+    <nav class="mb-8" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-600">
+        <li>
+          <a href="/" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            Home
+          </a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li>
+          <a href="/blogs" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            Blog
+          </a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium truncate">
+          {frontmatter.title || postId}
+        </li>
+      </ol>
+    </nav>
+
     {/* Header */}
     <header class="mb-8">
       <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
@@ -299,8 +320,53 @@ const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCover
     margin-right: 0.5rem;
   }
 
+  /* Breadcrumb Navigation */
+  article nav[aria-label="Breadcrumb"] ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  article nav[aria-label="Breadcrumb"] li {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  article nav[aria-label="Breadcrumb"] a {
+    color: rgb(37 99 235);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  article nav[aria-label="Breadcrumb"] a:hover {
+    color: rgb(29 78 216);
+    text-decoration: underline;
+  }
+
+  article nav[aria-label="Breadcrumb"] .text-gray-900 {
+    font-weight: 500;
+    color: rgb(17 24 39);
+  }
+
   /* Mobile responsive */
   @media (max-width: 768px) {
+    article nav[aria-label="Breadcrumb"] ol {
+      gap: 0.25rem;
+      font-size: 0.875rem;
+    }
+
+    article nav[aria-label="Breadcrumb"] li {
+      display: inline;
+    }
+
+    article nav[aria-label="Breadcrumb"] li.text-gray-900 {
+      display: inline;
+    }
+
     article .prose {
       font-size: 1rem;
     }
