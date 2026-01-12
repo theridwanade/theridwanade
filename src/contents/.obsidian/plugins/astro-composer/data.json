@@ -14,10 +14,10 @@
   "contentTypes": [
     {
       "id": "posts-1765432337485",
-      "name": "Posts",
-      "folder": "posts",
-      "linkBasePath": "/posts/",
-      "template": "---\ntitle: \"{{title}}\"\ndate: {{date}}\ndescription: \"\"\ntags: []\nimage: \"\"\nimageAlt: \"\"\nimageOG: false\nhideCoverImage: false\nhideTOC: false\ntargetKeyword: \"\"\ndraft: true\n---",
+      "name": "Blogs",
+      "folder": "blogs",
+      "linkBasePath": "/blogs/",
+      "template": "---\ntitle: \"{{title}}\"\ndate: {{date}}\ndescription: \"\"\ntags: []\nimage: \"\"\nimageAlt: \"\"\nimageOG: false\nhideCoverImage: false\nhideTOC: false\ntargetKeyword: \"\"\nfeatured: false\ndraft: true\n---",
       "enabled": true,
       "creationMode": "file",
       "indexFileName": "index",
@@ -70,7 +70,7 @@
     "iconId": "wrench"
   },
   "showMdxFilesInExplorer": false,
-  "linkBasePath": "/posts/",
+  "linkBasePath": "/blogs/",
   "enableAutoRename": true,
   "enableAutoInsertFrontmatter": true,
   "draftStyle": "filename"

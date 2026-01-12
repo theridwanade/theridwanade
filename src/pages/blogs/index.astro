@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import { getAllPosts, calculateReadingTime } from '@/lib/post-utils';
 import path from 'path';
 
-const postsDir = path.join(process.cwd(), 'src/contents/posts');
+const postsDir = path.join(process.cwd(), 'src/contents/blogs');
 const posts = getAllPosts(postsDir, false); // Only published posts
 ---
 

@@ -4,20 +4,31 @@
     "type": "split",
     "children": [
       {
-        "id": "3b95a57bb8aa8c37",
+        "id": "e913666b1fbc0162",
         "type": "tabs",
         "children": [
           {
-            "id": "111f859b8e1629ab",
+            "id": "12049df9b28fce84",
             "type": "leaf",
             "state": {
-              "type": "bases",
+              "type": "markdown",
               "state": {
-                "file": "bases/Home.base",
-                "viewName": "Blogs"
+                "file": "blogs/building-my-first-blog.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
               },
-              "icon": "lucide-home",
-              "title": "Home"
+              "icon": "lucide-file",
+              "title": "building-my-first-blog"
             }
           }
         ]
@@ -93,7 +104,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bases/Home.base",
+                "file": "blogs/building-my-first-blog.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +114,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for building-my-first-blog"
             }
           },
           {
@@ -171,16 +182,46 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "111f859b8e1629ab",
+  "active": "12049df9b28fce84",
   "lastOpenFiles": [
-    "posts/obsidian-embeds-demo.md",
     "bases/Home.base",
-    "posts/markdown-test.md",
+    "blogs/building-my-first-blog.md",
+    "blogs/vault-cms-guide.md",
+    "blogs/markdown-test.md",
+    "blogs/getting-started.md",
+    "blogs/formatting-reference.md",
+    "pages/privacy-policy.md",
+    "pages/contact.md",
+    "blogs/obsidian-embeds-demo.md",
     "posts/vault-cms-guide.md",
+    "posts/obsidian-embeds-demo.md",
+    "posts/markdown-test.md",
+    "posts/getting-started.md",
     "posts/formatting-reference.md",
+    "posts/attachments/mountains-clouds.png",
+    "posts/attachments/mountain-landscape.jpg",
+    "posts/attachments/galaxy.png",
+    "posts/attachments/forest-path.jpg",
+    "posts/attachments/document.pdf",
+    "posts/attachments/desert-sunset.jpg",
+    "posts/attachments/city-skyline.jpg",
+    "posts/attachments/autumn-leaves.jpg",
+    "posts/attachments",
+    "posts",
+    "pages/ff.md",
+    "posts/attachments/winter-landscape.jpg",
+    "posts/attachments/video.mp4",
+    "posts/attachments/vault-cms-cover.png",
+    "posts/attachments/sunset.png",
+    "posts/attachments/sound.wav",
+    "blogs/attachments/video.mp4",
+    "blogs/attachments/sound.wav",
+    "blogs/attachments/document.pdf",
+    "blogs/new-test.md",
+    "blogs/attachments",
+    "posts/new-test.md",
     "Untitled.md",
     "docs/sourcetree-and-git-setup/index.md",
-    "docs/api.md",
-    "posts/getting-started.md"
+    "docs/api.md"
   ]
 }

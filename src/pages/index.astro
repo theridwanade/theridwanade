@@ -4,7 +4,7 @@ import { getLatestPosts, getFeaturedPost, calculateReadingTime } from '@/lib/pos
 import path from 'path';
 
 const year = new Date().getFullYear();
-const postsDir = path.join(process.cwd(), 'src/contents/posts');
+const postsDir = path.join(process.cwd(), 'src/contents/blogs');
 const latestPosts = getLatestPosts(postsDir, 3);
 const featuredPost = getFeaturedPost(postsDir);
 

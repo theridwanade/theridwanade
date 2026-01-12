@@ -28,7 +28,7 @@ function copyDirectory(src, dest) {
 function main() {
   // project root is one level up from scripts/ when executed via npm scripts
   const projectRoot = path.resolve(__dirname, '..');
-  const postsDir = path.join(projectRoot, 'src', 'contents', 'posts');
+  const postsDir = path.join(projectRoot, 'src', 'contents', 'blogs');
   const publicBlogsDir = path.join(projectRoot, 'public', 'blogs');
 
   copyDirectory(postsDir, publicBlogsDir);

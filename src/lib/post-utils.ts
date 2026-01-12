@@ -52,7 +52,7 @@ export function parseMarkdownFile(filePath: string): ParsedPost {
 }
 
 /**
- * Get all blog posts from the posts directory
+ * Get all blog posts from the blogs directory
  */
 export function getAllPosts(postsDir: string, includeDrafts: boolean = false) {
   const posts: Array<{ slug: string; postId: string; frontmatter: any; content: string }> = [];

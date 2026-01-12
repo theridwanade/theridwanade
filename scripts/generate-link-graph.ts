@@ -359,12 +359,12 @@ function buildLinkGraph(posts: Post[]): LinkGraph {
  * Main execution
  */
 function main() {
-  const postsDir = path.join(process.cwd(), 'src/contents/posts');
+  const postsDir = path.join(process.cwd(), 'src/contents/blogs');
   const outputDir = path.join(process.cwd(), 'public');
   const outputFile = path.join(outputDir, 'link-graph.json');
 
   console.log('🔗 Generating link graph...');
-  console.log(`📁 Posts directory: ${postsDir}`);
+  console.log(`📁 Blogs directory: ${postsDir}`);
 
   // Load all posts
   const posts = loadAllPosts(postsDir);

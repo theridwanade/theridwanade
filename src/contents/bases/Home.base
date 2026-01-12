@@ -3,7 +3,7 @@ filters:
     - file.ext == "md"
 formulas:
   Slug: |-
-    if(file.folder == "posts", "/blogs/" + file.name.replace(".md", ""), 
+    if(file.folder == "blogs", "/blogs/" + file.name.replace(".md", ""), 
       if(file.folder == "pages", "/" + file.name.replace(".md", ""), 
         if(file.folder == "special", if(file.name.replace(".md", "") == "home", "/", "/" + file.name.replace(".md", "")), 
           if(file.folder == "projects", "/projects/" + file.name.replace(".md", ""), 
@@ -39,7 +39,7 @@ views:
     name: Blogs
     filters:
       and:
-        - file.folder.startsWith("posts")
+        - file.folder.startsWith("blogs")
     sort:
       - property: date
         direction: DESC
@@ -60,7 +60,7 @@ views:
     showTags: true
     tagsProperty: note.tags
     customizeNewButton: true
-    newNoteLocation: posts
+    newNoteLocation: blogs
     cardSize: 250
     imageAspectRatio: 0.55
     maxTagsToShow: 2
