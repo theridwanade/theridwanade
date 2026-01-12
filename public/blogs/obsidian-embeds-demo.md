@@ -12,7 +12,8 @@ imageOG: false
 hideCoverImage: false
 hideTOC: false
 targetKeyword: obsidian embeds
-draft: false
+draft: true
+featured: true
 aliases:
   - mermaid-test
   - mermaid-diagram-test

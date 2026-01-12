@@ -4,7 +4,7 @@ import { getAllPosts } from '@/lib/post-utils';
 import path from 'path';
 
 const postsDir = path.join(process.cwd(), 'src/contents/posts');
-const posts = getAllPosts(postsDir);
+const posts = getAllPosts(postsDir, false); // Only published posts
 ---
 
 <Layout>

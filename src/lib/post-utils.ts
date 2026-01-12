@@ -54,7 +54,7 @@ export function parseMarkdownFile(filePath: string): ParsedPost {
 /**
  * Get all blog posts from the posts directory
  */
-export function getAllPosts(postsDir: string) {
+export function getAllPosts(postsDir: string, includeDrafts: boolean = false) {
   const posts: Array<{ slug: string; postId: string; frontmatter: any; content: string }> = [];
 
   function scanDirectory(dir: string) {
@@ -74,6 +74,12 @@ export function getAllPosts(postsDir: string) {
         if (fs.existsSync(indexPath)) {
           const relativePath = path.relative(postsDir, fullPath);
           const parsed = parseMarkdownFile(indexPath);
+          
+          // Skip drafts unless explicitly requested
+          if (!includeDrafts && (parsed.frontmatter?.draft === true || parsed.frontmatter?.draft === 'true')) {
+            continue;
+          }
+          
           posts.push({
             slug: relativePath,
             postId: relativePath,
@@ -85,6 +91,12 @@ export function getAllPosts(postsDir: string) {
         const relativePath = path.relative(postsDir, fullPath);
         const slug = relativePath.replace(/\.md$/, '');
         const parsed = parseMarkdownFile(fullPath);
+        
+        // Skip drafts unless explicitly requested
+        if (!includeDrafts && (parsed.frontmatter?.draft === true || parsed.frontmatter?.draft === 'true')) {
+          continue;
+        }
+        
         posts.push({
           slug,
           postId: slug,
@@ -248,7 +260,7 @@ function replaceMediaEmbeds(md: string, toBlogHref: (slug: string) => string): s
  * Get the latest N posts sorted by date
  */
 export function getLatestPosts(postsDir: string, limit: number = 3) {
-  const posts = getAllPosts(postsDir);
+  const posts = getAllPosts(postsDir, false); // Don't include drafts
   return posts
     .sort((a, b) => {
       const dateA = a.frontmatter?.date ? new Date(a.frontmatter.date).getTime() : 0;
@@ -262,7 +274,7 @@ export function getLatestPosts(postsDir: string, limit: number = 3) {
  * Get a featured post (first non-draft post with featured flag or newest)
  */
 export function getFeaturedPost(postsDir: string) {
-  const posts = getAllPosts(postsDir);
+  const posts = getAllPosts(postsDir, false); // Don't include drafts
   
   // Look for a post marked as featured
   let featured = posts.find(p => p.frontmatter?.featured === true || p.frontmatter?.featured === 'true');

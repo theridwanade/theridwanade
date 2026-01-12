@@ -11,24 +11,13 @@
             "id": "111f859b8e1629ab",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "bases",
               "state": {
-                "file": "posts/formatting-reference.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
+                "file": "bases/Home.base",
+                "viewName": "Blogs"
               },
-              "icon": "lucide-file",
-              "title": "formatting-reference"
+              "icon": "lucide-home",
+              "title": "Home"
             }
           }
         ]
@@ -104,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "posts/formatting-reference.md",
+                "file": "bases/Home.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +103,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for formatting-reference"
+              "title": "Backlinks for Home"
             }
           },
           {
@@ -184,11 +173,11 @@
   },
   "active": "111f859b8e1629ab",
   "lastOpenFiles": [
+    "posts/vault-cms-guide.md",
     "bases/Home.base",
-    "posts/obsidian-embeds-demo.md",
     "posts/markdown-test.md",
     "posts/formatting-reference.md",
-    "posts/vault-cms-guide.md",
+    "posts/obsidian-embeds-demo.md",
     "Untitled.md",
     "docs/sourcetree-and-git-setup/index.md",
     "docs/api.md",
