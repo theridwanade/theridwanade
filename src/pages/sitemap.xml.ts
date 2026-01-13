@@ -1,4 +1,3 @@
----
 import { getAllPosts } from '@/lib/post-utils';
 import path from 'path';
 import fs from 'fs';
@@ -124,4 +123,3 @@ export async function GET() {
     },
   });
 }
----

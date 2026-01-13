@@ -30,8 +30,22 @@
               "icon": "lucide-file",
               "title": "building-my-first-blog"
             }
+          },
+          {
+            "id": "0521353ed8ace584",
+            "type": "leaf",
+            "state": {
+              "type": "bases",
+              "state": {
+                "file": "bases/Home.base",
+                "viewName": "Blogs"
+              },
+              "icon": "lucide-home",
+              "title": "Home"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -104,7 +118,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "blogs/building-my-first-blog.md",
+                "file": "bases/Home.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +128,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for building-my-first-blog"
+              "title": "Backlinks for Home"
             }
           },
           {
@@ -182,10 +196,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "12049df9b28fce84",
+  "active": "0521353ed8ace584",
   "lastOpenFiles": [
-    "bases/Home.base",
     "blogs/building-my-first-blog.md",
+    "bases/Home.base",
     "blogs/vault-cms-guide.md",
     "blogs/markdown-test.md",
     "blogs/getting-started.md",

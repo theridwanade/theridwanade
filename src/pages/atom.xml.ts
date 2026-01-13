@@ -1,4 +1,3 @@
----
 import { getAllPosts } from '@/lib/post-utils';
 import path from 'path';
 
@@ -74,4 +73,3 @@ function escapeXml(str: string): string {
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&apos;');
 }
----

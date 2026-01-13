@@ -1,4 +1,4 @@
----
+
 // JSON-LD schema for organization and website structured data
 
 export interface PersonSchema {
@@ -19,12 +19,12 @@ export function getPersonSchema(): PersonSchema {
     "@context": "https://schema.org",
     "@type": "Person",
     "@id": "https://theridwanade.me/#person",
-    name": "Ridwan Oyeniyi",
-    url": "https://theridwanade.me",
-    email": "ridwan@theridwanade.me",
-    jobTitle": "Software & Hardware Developer",
-    image": "https://theridwanade.me/me.jpg",
-    sameAs": [
+    "name": "Ridwan Oyeniyi",
+    "url": "https://theridwanade.me",
+    "email": "ridwan@theridwanade.me",
+    "jobTitle": "Software & Hardware Developer",
+    "image": "https://theridwanade.me/me.jpg",
+    "sameAs": [
       "https://twitter.com/theridwanade",
       "https://github.com/theridwanade"
     ],
@@ -107,4 +107,3 @@ export function getBlogPostSchema(
     "keywords": keywords
   };
 }
----
