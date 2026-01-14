@@ -1,47 +1,37 @@
 {
   "main": {
-    "id": "376ff7cc8c050c09",
+    "id": "5324373015726ba8",
     "type": "split",
     "children": [
       {
-        "id": "e913666b1fbc0162",
+        "id": "4509724f8bf84da7",
         "type": "tabs",
         "children": [
           {
-            "id": "12049df9b28fce84",
+            "id": "e7a7b303c61786dc",
             "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "blogs/building-my-first-blog.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "building-my-first-blog"
-            }
-          },
-          {
-            "id": "0521353ed8ace584",
-            "type": "leaf",
+            "pinned": true,
             "state": {
               "type": "bases",
               "state": {
                 "file": "bases/Home.base",
                 "viewName": "Blogs"
               },
+              "pinned": true,
               "icon": "lucide-home",
               "title": "Home"
+            }
+          },
+          {
+            "id": "c251602060700c5a",
+            "type": "leaf",
+            "state": {
+              "type": "image",
+              "state": {
+                "file": "pages/attachments/water.png"
+              },
+              "icon": "lucide-image",
+              "title": "water"
             }
           }
         ],
@@ -118,7 +108,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "bases/Home.base",
+                "file": "pages/attachments/water.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -128,7 +118,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Home"
+              "title": "Backlinks for water"
             }
           },
           {
@@ -196,10 +186,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "0521353ed8ace584",
+  "active": "c5b0187ec4d5dd83",
   "lastOpenFiles": [
-    "blogs/building-my-first-blog.md",
     "bases/Home.base",
+    "blogs/before-it-found-its-way.md",
+    "blogs/attachments/before_it_found_its_way.jpg",
+    "blogs/attachments/before_it_found_its_way.png",
+    "blogs/attachments/before_it_found_its_way.jpeg",
+    "blogs/building-my-first-blog.md",
     "blogs/vault-cms-guide.md",
     "blogs/markdown-test.md",
     "blogs/getting-started.md",
@@ -223,10 +217,7 @@
     "posts/attachments",
     "posts",
     "pages/ff.md",
-    "posts/attachments/winter-landscape.jpg",
     "posts/attachments/video.mp4",
-    "posts/attachments/vault-cms-cover.png",
-    "posts/attachments/sunset.png",
     "posts/attachments/sound.wav",
     "blogs/attachments/video.mp4",
     "blogs/attachments/sound.wav",
