@@ -33,9 +33,19 @@
               "icon": "lucide-image",
               "title": "water"
             }
+          },
+          {
+            "id": "9bf357c3a6427038",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "New tab"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -108,7 +118,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "pages/attachments/water.png",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -118,7 +127,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for water"
+              "title": "Backlinks"
             }
           },
           {
@@ -186,8 +195,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "c5b0187ec4d5dd83",
+  "active": "9bf357c3a6427038",
   "lastOpenFiles": [
+    "pages/attachments/water.png",
     "bases/Home.base",
     "blogs/before-it-found-its-way.md",
     "blogs/attachments/before_it_found_its_way.jpg",
