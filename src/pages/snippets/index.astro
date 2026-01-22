@@ -1,0 +1,90 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { getAllPosts } from '@/lib/post-utils';
+import path from 'path';
+
+const snippetsDir = path.join(process.cwd(), 'src/contents/snippets');
+const snippets = getAllPosts(snippetsDir, false); // Only published snippets
+
+// JSON-LD Schema for Snippets Collection
+const collectionSchema = {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://theridwanade.me/snippets",
+  "name": "Ridwan Oyeniyi's Snippets",
+  "url": "https://theridwanade.me/snippets",
+  "description": "Quick thoughts, updates, and microblog content from Ridwan Oyeniyi",
+  "author": {
+    "@type": "Person",
+    "name": "Ridwan Oyeniyi",
+    "email": "ridwan@theridwanade.me",
+    "url": "https://theridwanade.me"
+  }
+};
+---
+
+<Layout 
+  title="Snippets"
+  description="Quick thoughts, updates, and microblog content"
+>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  
+  <section class="max-w-5xl mx-auto px-4 py-10">
+    <div class="mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Snippets</h1>
+      <p class="text-gray-600 text-lg">Quick thoughts, updates, and microblog content</p>
+    </div>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {snippets.map((snippet) => {
+        const imageMatch = snippet.frontmatter?.image?.match(/\[\[(.+?)\]\]/);
+        const imagePath = imageMatch ? `/snippets/${imageMatch[1]}` : snippet.frontmatter?.image;
+        const hideCover = snippet.frontmatter?.hideCoverImage === true || snippet.frontmatter?.hideCoverImage === 'true';
+        
+        return (
+          <a 
+            href={`/snippets/${snippet.slug}`}
+            class="group bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg hover:border-gray-300 transition-all duration-300"
+          >
+            {imagePath && !hideCover && (
+              <div class="h-64 overflow-hidden bg-gray-100">
+                <img 
+                  src={imagePath} 
+                  alt={snippet.frontmatter?.imageAlt || snippet.frontmatter?.title || 'Snippet image'}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
+            <div class="p-5">
+              <h2 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+                {snippet.frontmatter?.title ?? snippet.slug}
+              </h2>
+              {snippet.frontmatter?.description && (
+                <p class="text-gray-600 text-sm mb-3 line-clamp-2">
+                  {snippet.frontmatter.description}
+                </p>
+              )}
+              <div class="flex items-center justify-between text-xs text-gray-500">
+                {snippet.frontmatter?.date && (
+                  <span>
+                    {new Date(snippet.frontmatter.date).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </span>
+                )}
+                {snippet.frontmatter?.tags && (
+                  <span class="px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
+                    {Array.isArray(snippet.frontmatter.tags) ? snippet.frontmatter.tags[0] : snippet.frontmatter.tags}
+                  </span>
+                )}
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </section>
+</Layout>

@@ -107,3 +107,44 @@ export function getBlogPostSchema(
     "keywords": keywords
   };
 }
+
+export interface SnippetSchema {
+  "@context": string;
+  "@type": string;
+  "@id": string;
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  dateModified: string;
+  author: object;
+  publisher: object;
+  mainEntityOfPage: object;
+  keywords: string[];
+}
+
+export function getSnippetSchema(
+  title: string,
+  description: string,
+  image: string,
+  datePublished: string,
+  keywords: string[]
+): SnippetSchema {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SocialMediaPosting",
+    "@id": `https://theridwanade.me/snippets/${title.toLowerCase().replace(/\s+/g, '-')}#snippet`,
+    "headline": title,
+    "description": description,
+    "image": image,
+    "datePublished": datePublished,
+    "dateModified": datePublished,
+    "author": getPersonSchema(),
+    "publisher": getPersonSchema(),
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://theridwanade.me/snippets/${title.toLowerCase().replace(/\s+/g, '-')}`
+    },
+    "keywords": keywords
+  };
+}

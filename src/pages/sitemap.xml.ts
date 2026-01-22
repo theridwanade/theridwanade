@@ -5,12 +5,14 @@ import fs from 'fs';
 export async function GET() {
   const baseUrl = 'https://theridwanade.me';
   const blogsDir = path.join(process.cwd(), 'src/contents/blogs');
+  const snippetsDir = path.join(process.cwd(), 'src/contents/snippets');
   const pagesDir = path.join(process.cwd(), 'src/contents/pages');
   const projectsDir = path.join(process.cwd(), 'src/contents/projects');
   const docsDir = path.join(process.cwd(), 'src/contents/docs');
 
-  // Get all published blogs
+  // Get all published blogs and snippets
   const blogs = getAllPosts(blogsDir, false);
+  const snippets = getAllPosts(snippetsDir, false);
 
   // Helper to get markdown files from a directory
   function getMarkdownFiles(dir: string): Array<{ path: string; date: string }> {
@@ -76,6 +78,25 @@ export async function GET() {
   // Add main blog listing page
   xml += '  <url>\n';
   xml += `    <loc>${baseUrl}/blogs</loc>\n`;
+  xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
+  xml += '    <changefreq>weekly</changefreq>\n';
+  xml += '    <priority>0.9</priority>\n';
+  xml += '  </url>\n';
+
+  // Add snippets with high priority
+  for (const snippet of snippets) {
+    const date = snippet.frontmatter?.date ? new Date(snippet.frontmatter.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+    xml += '  <url>\n';
+    xml += `    <loc>${baseUrl}/snippets/${snippet.slug}</loc>\n`;
+    xml += `    <lastmod>${date}</lastmod>\n`;
+    xml += '    <changefreq>monthly</changefreq>\n';
+    xml += '    <priority>0.8</priority>\n';
+    xml += '  </url>\n';
+  }
+
+  // Add main snippets listing page
+  xml += '  <url>\n';
+  xml += `    <loc>${baseUrl}/snippets</loc>\n`;
   xml += `    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>\n`;
   xml += '    <changefreq>weekly</changefreq>\n';
   xml += '    <priority>0.9</priority>\n';
