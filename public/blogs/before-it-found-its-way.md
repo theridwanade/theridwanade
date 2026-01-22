@@ -1,5 +1,5 @@
 ---
-title: Before It Found Its Way
+title: Before It Found It's Way
 date: 2026-01-13
 description: The thoughts in my mind a many, it needs a way out and I let it out.
 tags:
@@ -14,5 +14,5 @@ hideCoverImage: false
 hideTOC: false
 targetKeyword: ""
 featured: true
-draft: false
+draft: true
 ---

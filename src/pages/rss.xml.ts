@@ -21,7 +21,7 @@ export async function GET() {
   rss += '  <channel>\n';
   rss += '    <title>Ridwan Oyeniyi - Blog & Snippets</title>\n';
   rss += `    <link>${baseUrl}</link>\n`;
-  rss += '    <description>Articles, thoughts, and quick snippets on software development, design, and technology</description>\n`;
+  rss += '    <description>Articles, thoughts, and quick snippets on software development, design, and technology</description>\n';
   rss += `    <language>en-us</language>\n`;
   rss += `    <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />\n`;
   rss += `    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>\n`;

@@ -2,7 +2,6 @@
 import Layout from '@/layouts/Layout.astro';
 import { LinkedMentions } from '@/components/LinkedMentions';
 import { getAllPosts, markdownToHtml, formatTags } from '@/lib/post-utils';
-import { getSnippetSchema } from '@/lib/schema';
 import path from 'path';
 
 export async function getStaticPaths() {
