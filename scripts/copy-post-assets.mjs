@@ -30,9 +30,14 @@ function main() {
   const projectRoot = path.resolve(__dirname, '..');
   const postsDir = path.join(projectRoot, 'src', 'contents', 'blogs');
   const publicBlogsDir = path.join(projectRoot, 'public', 'blogs');
+  const snippetsDir = path.join(projectRoot, 'src', 'contents', 'snippets');
+  const publicSnippetsDir = path.join(projectRoot, 'public', 'snippets');
 
   copyDirectory(postsDir, publicBlogsDir);
   console.log('Copied post assets to public/blogs');
+  
+  copyDirectory(snippetsDir, publicSnippetsDir);
+  console.log('Copied snippet assets to public/snippets');
 }
 
 main();

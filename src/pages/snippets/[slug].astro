@@ -1,0 +1,208 @@
+---
+import Layout from '@/layouts/Layout.astro';
+import { LinkedMentions } from '@/components/LinkedMentions';
+import { getAllPosts, markdownToHtml, formatTags } from '@/lib/post-utils';
+import path from 'path';
+
+export async function getStaticPaths() {
+  const snippetsDir = path.join(process.cwd(), 'src/contents/snippets');
+  const snippets = getAllPosts(snippetsDir, false); // Only published snippets
+  return snippets.map((snippet) => ({ params: { slug: snippet.slug }, props: snippet }));
+}
+
+const { postId, frontmatter, content } = Astro.props;
+const htmlContent = markdownToHtml(content);
+const tags = formatTags(frontmatter?.tags);
+
+// Extract image path from wikilink format [[attachments/image.png]] or use direct path
+const imageMatch = frontmatter?.image?.match(/\[\[(.+?)\]\]/);
+const imagePath = imageMatch ? `/snippets/${imageMatch[1]}` : frontmatter?.image;
+const hideCover = frontmatter?.hideCoverImage === true || frontmatter?.hideCoverImage === 'true';
+
+// SEO metadata
+const pageTitle = frontmatter?.title || postId;
+const pageDescription = frontmatter?.description || '';
+const ogImage = imagePath || '/og-default.jpg';
+const keywords = tags.join(', ');
+const publishDate = frontmatter?.date ? new Date(frontmatter.date).toISOString().split('T')[0] : new Date().toISOString().split('T')[0];
+
+// JSON-LD Schema
+const snippetSchema = {
+  "@context": "https://schema.org",
+  "@type": "SocialMediaPosting",
+  "@id": `https://theridwanade.me/snippets/${postId}`,
+  "headline": pageTitle,
+  "description": pageDescription,
+  "image": `https://theridwanade.me${ogImage}`,
+  "datePublished": publishDate,
+  "dateModified": publishDate,
+  "author": {
+    "@type": "Person",
+    "name": "Ridwan Oyeniyi",
+    "email": "ridwan@theridwanade.me",
+    "url": "https://theridwanade.me"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Ridwan Oyeniyi",
+    "url": "https://theridwanade.me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `https://theridwanade.me/snippets/${postId}`
+  },
+  "keywords": keywords,
+  "articleSection": "Snippet",
+  "inLanguage": "en-US"
+};
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={keywords}
+  ogImage={ogImage}
+  canonicalUrl={Astro.url.pathname}
+>
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json" set:html={JSON.stringify(snippetSchema)} />
+  
+  <article class="max-w-3xl mx-auto px-4 py-8">
+    {/* Breadcrumb Navigation */}
+    <nav class="mb-8" aria-label="Breadcrumb">
+      <ol class="flex items-center gap-2 text-sm text-gray-600">
+        <li>
+          <a href="/" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            Home
+          </a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li>
+          <a href="/snippets" class="text-blue-600 hover:text-blue-800 hover:underline transition-colors">
+            Snippets
+          </a>
+        </li>
+        <li class="text-gray-400">/</li>
+        <li class="text-gray-900 font-medium truncate">
+          {frontmatter.title || postId}
+        </li>
+      </ol>
+    </nav>
+
+    {/* Featured Image - Prominent display for snippets */}
+    {imagePath && !hideCover && (
+      <div class="mb-8">
+        <img 
+          src={imagePath} 
+          alt={frontmatter?.imageAlt || frontmatter?.title || 'Snippet image'}
+          class="w-full h-auto rounded-xl shadow-lg"
+        />
+      </div>
+    )}
+
+    {/* Header */}
+    <header class="mb-6">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+        {frontmatter.title || postId}
+      </h1>
+
+      <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+        {frontmatter.date && (
+          <time>
+            {new Date(frontmatter.date).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </time>
+        )}
+      </div>
+
+      {frontmatter.tags && (
+        <div class="flex flex-wrap gap-2">
+          {(Array.isArray(frontmatter.tags) ? frontmatter.tags : [frontmatter.tags]).map((tag: string) => (
+            <span class="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full">{tag}</span>
+          ))}
+        </div>
+      )}
+    </header>
+
+    {/* Content - Optimized for short-form content */}
+    <div class="prose prose-lg max-w-none text-gray-700 leading-relaxed" set:html={htmlContent} />
+
+    {/* Linked Mentions Section */}
+    <div class="mt-12">
+      <LinkedMentions postId={postId} client:load />
+    </div>
+  </article>
+</Layout>
+
+<style is:global>
+  /* Snippet-specific prose styles - cleaner and more compact */
+  article .prose {
+    color: rgb(55 65 81);
+    line-height: 1.8;
+    font-size: 1.125rem;
+  }
+
+  article .prose p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+  }
+
+  article .prose strong {
+    font-weight: 600;
+    color: rgb(17 24 39);
+  }
+
+  article .prose a {
+    color: rgb(37 99 235);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.2s;
+  }
+
+  article .prose a:hover {
+    color: rgb(29 78 216);
+  }
+
+  /* Breadcrumb Navigation */
+  article nav[aria-label="Breadcrumb"] ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  article nav[aria-label="Breadcrumb"] li {
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  article nav[aria-label="Breadcrumb"] a {
+    color: rgb(37 99 235);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  article nav[aria-label="Breadcrumb"] a:hover {
+    color: rgb(29 78 216);
+    text-decoration: underline;
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 768px) {
+    article nav[aria-label="Breadcrumb"] ol {
+      gap: 0.25rem;
+      font-size: 0.875rem;
+    }
+
+    article .prose {
+      font-size: 1rem;
+    }
+  }
+</style>
