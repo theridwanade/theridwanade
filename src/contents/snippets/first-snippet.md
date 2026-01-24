@@ -5,12 +5,12 @@ description: Testing out the snippets feature with a simple post.
 tags:
   - test
   - development
-image: "[[attachments/first-snippet.jpg]]"
+image: "[[attachments/autumn-leaves 1.jpg]]"
 imageAlt: A minimalist design showing the concept of snippets
 imageOG: true
 hideCoverImage: false
 featured: false
-draft: false
+draft: true
 ---
 
 This is my first snippet! Snippets are designed for quick, bite-sized content that's easy to create and consume. Stay tuned for more updates!

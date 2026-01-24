@@ -15,37 +15,14 @@
               "type": "bases",
               "state": {
                 "file": "bases/Home.base",
-                "viewName": "Blogs"
+                "viewName": "Snippets"
               },
               "pinned": true,
               "icon": "lucide-home",
               "title": "Home"
             }
-          },
-          {
-            "id": "c251602060700c5a",
-            "type": "leaf",
-            "state": {
-              "type": "image",
-              "state": {
-                "file": "pages/attachments/water.png"
-              },
-              "icon": "lucide-image",
-              "title": "water"
-            }
-          },
-          {
-            "id": "9bf357c3a6427038",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "New tab"
-            }
           }
-        ],
-        "currentTab": 2
+        ]
       }
     ],
     "direction": "vertical"
@@ -118,6 +95,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "bases/Home.base",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -127,7 +105,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks"
+              "title": "Backlinks for Home"
             }
           },
           {
@@ -195,11 +173,20 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "9bf357c3a6427038",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "pages/attachments/water.png",
     "bases/Home.base",
+    "snippets/Untitled.md",
+    "snippets/first-snippet.md",
+    "snippets/attachments/welcome-snippet.jpg",
+    "snippets/attachments/first-snippet.jpg",
+    "snippets/attachments/autumn-leaves 1.jpg",
+    "blogs/attachments/autumn-leaves.jpg",
     "blogs/before-it-found-its-way.md",
+    "snippets/welcome-to-snippets.md",
+    "snippets/attachments",
+    "snippets",
+    "pages/attachments/water.png",
     "blogs/attachments/before_it_found_its_way.jpg",
     "blogs/attachments/before_it_found_its_way.png",
     "blogs/attachments/before_it_found_its_way.jpeg",
@@ -218,12 +205,7 @@
     "posts/formatting-reference.md",
     "posts/attachments/mountains-clouds.png",
     "posts/attachments/mountain-landscape.jpg",
-    "posts/attachments/galaxy.png",
-    "posts/attachments/forest-path.jpg",
     "posts/attachments/document.pdf",
-    "posts/attachments/desert-sunset.jpg",
-    "posts/attachments/city-skyline.jpg",
-    "posts/attachments/autumn-leaves.jpg",
     "posts/attachments",
     "posts",
     "pages/ff.md",
@@ -231,9 +213,7 @@
     "posts/attachments/sound.wav",
     "blogs/attachments/video.mp4",
     "blogs/attachments/sound.wav",
-    "blogs/attachments/document.pdf",
     "blogs/new-test.md",
-    "blogs/attachments",
     "posts/new-test.md",
     "Untitled.md",
     "docs/sourcetree-and-git-setup/index.md",

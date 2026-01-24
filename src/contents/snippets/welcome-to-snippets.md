@@ -10,7 +10,7 @@ imageAlt: A colorful illustration representing quick thoughts and ideas
 imageOG: true
 hideCoverImage: false
 featured: true
-draft: false
+draft: true
 ---
 
 Welcome to Snippets! This is a new content format for sharing quick thoughts, updates, and ideas in a more casual, microblog style. Each snippet consists of a single image and a brief message - perfect for capturing moments and insights without the need for a full blog post.

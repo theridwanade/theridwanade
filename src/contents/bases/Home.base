@@ -217,3 +217,22 @@ views:
     imageAspectRatio: 0.55
     maxTagsToShow: 2
     hideQuickEditIcon: true
+  - type: bases-cms
+    name: Snippets
+    filters:
+      and:
+        - file.folder.startsWith("snippets")
+    cardSize: 240
+    image: note.image
+    imageAspectRatio: 1
+    titleProperty: note.title
+    imageFormat: cover
+    imageProperty: note.image
+    showDate: true
+    dateIncludeTime: true
+    dateProperty: note.date
+    showDraftStatus: true
+    draftStatusProperty: note.draft
+    customizeNewButton: true
+    newNoteLocation: snippets
+    descriptionProperty: note.description
