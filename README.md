@@ -8,4 +8,3 @@ I'm a backend developer focused on systems, APIs, and software fundamentals.
 - 💬 **Ask me about:** Backend development & architecture
 
 > ⚡ **Fun fact:** I don’t collect fun facts.
-# theridwanade-me
