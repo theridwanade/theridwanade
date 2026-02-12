@@ -1,7 +1,9 @@
 export const HomePage = () => {
   return (`
     <div class="main">
-      <img class="hs-image" src="/theridwanade.jpg" alt="Ridwan" />
+    <div class="hs-image-main">
+    <img class="hs-image" src="/theridwanade.jpg" alt="Ridwan" />
+    </div>
 
       <p class="h1">Hi, I'm Ridwan.</p>
 
