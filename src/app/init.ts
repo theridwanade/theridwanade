@@ -1,13 +1,19 @@
 import { renderRoute } from "./router";
 
-export const initApp = () =>  {
+export const initApp = () => {
   window.addEventListener("popstate", () => {
     renderRoute(window.location.pathname);
   });
 
   document.addEventListener("click", (e) => {
-    const link = e.target.closest("a[data-link]");
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+
+    const link = target.closest("a[data-link]");
     if (!link) return;
+
+    // Type guard to ensure link is an HTMLAnchorElement
+    if (!(link instanceof HTMLAnchorElement)) return;
 
     e.preventDefault();
     history.pushState(null, "", link.href);
@@ -15,4 +21,4 @@ export const initApp = () =>  {
   });
 
   renderRoute(window.location.pathname);
-}
+};
