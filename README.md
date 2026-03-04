@@ -1,10 +1,10 @@
-# Hi, I'm Ridwan 👋
+# Ridwan
 
-I'm a backend developer focused on systems, APIs, and software fundamentals.
+Backend engineer. I like understanding how things work.
 
-- 🔭 **Working on:** Backend systems & personal projects
-- 🌱 **Learning:** Rust
-- 👯 **Looking for:** Practical software collaborations
-- 💬 **Ask me about:** Backend development & architecture
+Currently building a custom payment gateway in NestJS —
+card processing, PIN/OTP flows, merchant APIs.
 
-> ⚡ **Fun fact:** I don’t collect fun facts.
+**Stack:** Node.js · NestJS · TypeScript · MongoDB · Python · GCP · Firebase
+**Exploring:** Rust
+**Open to:** Backend and fintech roles — Nigeria or remote
