@@ -6,4 +6,4 @@ Currently building a custom payment gateway in NestJS, implementing card process
 
 **Stack:** Node.js · NestJS · TypeScript · MongoDB · Python · GCP · Firebase
 **Exploring:** Rust
-**Open to:** Backend and fintech roles — Nigeria or remote
+**Open to:** Backend and fintech roles in Nigeria or remote
