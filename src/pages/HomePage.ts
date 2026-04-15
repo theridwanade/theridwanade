@@ -8,7 +8,7 @@ export const HomePage = () => {
       <h1>Hi, I'm Ridwan.</h1>
 
       <p>
-        I'm a programmer and computer science enthusiast. I build open-source projects and software that educate and showcase the marvels of computer science.
+        I'm a Software Engineer. I build stuffs, open source, apps, hardwares, whatever sounds fun.
       </p>
 
       <p>
@@ -19,10 +19,14 @@ export const HomePage = () => {
       <p>
         I am currently pursuing my degree in Library and Information Science at the University of Ilorin, where I research information management and dissemination. I aim to combine my computer science skills and academic knowledge to create innovative solutions that benefit society.
       </p>
+      
+      <p>
+        About creating innovative solutions that benefits society, am also a public speaker and communicator. Or at least am aspiring to be one, check out my channels to stay updated with me.
+      </p>
 
       <p>
-        Read my articles on science, society, technology, and other topics I find interesting on 
-        <a href="https://medium.com/@theridwanade" target="_blank">Medium</a>.
+        Read my articles on science, society, technology, and criticism of topics I find interesting on 
+        <a href="https://theridwanade.substack.com" target="_blank">Substack</a>.
       </p>
 
       <p>
@@ -56,12 +60,12 @@ export const HomePage = () => {
       ></iframe>
 
       <footer style="margin-top:40px; padding:20px 0; text-align:center; border-top:1px solid #EEE; color:#555; font-size:14px;">
-        <p>© ${new Date().getFullYear()} Ridwan Ade. All rights reserved.</p>
+        <p>© ${new Date().getFullYear()} Ridwan. All rights reserved.</p>
         <p>
           Follow me on 
           <a href="https://github.com/theridwanade" target="_blank">GitHub</a>, 
-          <a href="https://linkedin.com/in/theridwanade" target="_blank">LinkedIn</a>, 
-          <a href="https://medium.com/@theridwanade" target="_blank">Medium</a>, 
+          <a href="https://linkedin.com/in/theridwanade" target="_blank">LinkedIn</a>,
+          <a href="https://youtube.com/@theridwanade" target="_blank">Youtube</a>,
           <a href="https://twitter.com/theridwanade" target="_blank">X (Twitter)</a>
         </p>
       </footer>
