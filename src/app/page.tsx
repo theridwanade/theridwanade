@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -8,9 +8,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { siteConfig } from "@/lib/data";
-import { ArrowUpRightIcon, BookOpenTextIcon, CpuIcon, MegaphoneIcon, SigmaIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import Image from "next/image";
+import { ArrowUpRightIcon, BookOpenTextIcon, CpuIcon, GraduationCapIcon, MegaphoneIcon, SigmaIcon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -34,36 +35,49 @@ export default function Home() {
                 {siteConfig.brand.name} / theridwanade
               </Badge>
               <h1 className="font-heading text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-                Software engineer, communicator, and lifelong student of first principles.
+                {siteConfig.hero.headline}
               </h1>
               <p className="max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-                I build dependable software systems and aspire to become a public speaker
-                who makes technical ideas clear, practical, and memorable. Philosophy,
-                science, and mathematics shape how I reason, decide, and build.
+                {siteConfig.hero.subheadline}
               </p>
               <div className="flex flex-wrap gap-3">
-                <Button size="lg">Let&apos;s collaborate</Button>
-                {siteConfig.projects.length > 0 ? (
-                  <Button variant="outline" size="lg">
-                    View selected work
-                  </Button>
-                ) : null}
+                <a
+                  href={siteConfig.links.socials[0]?.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(buttonVariants({ size: "lg" }))}
+                >
+                  Check out my GitHub
+                </a>
+                <a
+                  href={siteConfig.links.newsletter}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+                >
+                  Subscribe to my newsletter
+                </a>
               </div>
             </div>
 
             <Card className="w-full max-w-sm border-border/70 bg-card/90">
               <CardHeader>
-                <CardTitle className="flex items-center gap-3 text-lg">
-                  <Avatar size="lg">
-                    <AvatarFallback>RA</AvatarFallback>
-                  </Avatar>
-                  Ridwan
-                </CardTitle>
+                <CardTitle className="text-lg">Ridwan</CardTitle>
                 <CardDescription>
                   Engineering with clarity, speaking with intent.
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div className="relative aspect-[4/5] overflow-hidden rounded-xl border">
+                  <Image
+                    src={siteConfig.brand.imagePath}
+                    alt="Portrait of Ridwan"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
                 <p className="flex items-center gap-2">
                   <CpuIcon className="size-4" />
                   Software Engineer
@@ -79,6 +93,10 @@ export default function Home() {
                 <p className="flex items-center gap-2">
                   <SigmaIcon className="size-4" />
                   Mathematics Lover
+                </p>
+                <p className="flex items-center gap-2">
+                  <GraduationCapIcon className="size-4" />
+                  {siteConfig.education.school}
                 </p>
               </CardContent>
             </Card>
@@ -110,6 +128,31 @@ export default function Home() {
             </CardHeader>
             <CardContent className="text-sm text-muted-foreground">
               {siteConfig.about.community}
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+              Background
+            </p>
+            <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">
+              Study, research, and experimentation
+            </h2>
+          </div>
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle className="text-lg">Academic Journey</CardTitle>
+              <CardDescription>
+                {siteConfig.education.program} at {siteConfig.education.school}
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 text-sm text-muted-foreground">
+              <p>{siteConfig.education.focus}</p>
+              {siteConfig.bio.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </CardContent>
           </Card>
         </section>
@@ -151,7 +194,7 @@ export default function Home() {
               Selected Work
             </p>
             <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">
-              Projects shaping backend craft
+              Projects and open-source work
             </h2>
           </div>
           {siteConfig.projects.length > 0 ? (
@@ -170,10 +213,13 @@ export default function Home() {
                         </Badge>
                       ))}
                     </div>
-                    <Button variant="ghost" size="sm" className="w-fit">
+                    <a
+                      href="#"
+                      className={cn(buttonVariants({ variant: "ghost", size: "sm" }), "w-fit")}
+                    >
                       Explore case study
                       <ArrowUpRightIcon className="size-4" />
-                    </Button>
+                    </a>
                   </CardContent>
                 </Card>
               ))}
@@ -181,7 +227,16 @@ export default function Home() {
           ) : (
             <Card className="bg-card/90">
               <CardContent className="pt-6 text-sm text-muted-foreground">
-                Real project case studies will be added here as they are published.
+                Check out my projects and contributions on GitHub.
+                <a
+                  href={siteConfig.links.socials[0]?.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ml-2 inline-flex items-center gap-1 underline underline-offset-4"
+                >
+                  Visit GitHub
+                  <ArrowUpRightIcon className="size-3" />
+                </a>
               </CardContent>
             </Card>
           )}
@@ -192,7 +247,7 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Talk Ideas in Progress</CardTitle>
               <CardDescription>
-                Topics I am preparing as an aspiring speaker.
+                I am an aspiring public speaker and communicator.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -205,7 +260,7 @@ export default function Home() {
                 ))
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  Upcoming talk topics will appear here.
+                  Check out my channels to stay updated with me.
                 </p>
               )}
             </CardContent>
@@ -232,12 +287,85 @@ export default function Home() {
                 ))
               ) : (
                 <p className="text-sm text-muted-foreground">
-                  No public speaking events listed yet.
+                  No events listed yet.
                 </p>
               )}
             </CardContent>
           </Card>
         </section>
+
+        <section className="grid gap-4 lg:grid-cols-3">
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle>Follow</CardTitle>
+              <CardDescription>
+                Follow me on GitHub, LinkedIn, YouTube, and X (Twitter).
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {siteConfig.links.socials.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle>Writing</CardTitle>
+              <CardDescription>
+                Articles on science, society, technology, and technical writing.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {siteConfig.links.writing.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </CardContent>
+          </Card>
+
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle>Contact</CardTitle>
+              <CardDescription>
+                Reach out for projects, research, events, or just to say hello.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-2">
+              {siteConfig.links.contact.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className={cn(buttonVariants({ size: "sm" }))}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </CardContent>
+          </Card>
+        </section>
+
+        <Separator />
+
+        <footer className="flex flex-col gap-2 pb-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 Ridwan. All rights reserved.</p>
+          <p>@theridwanade</p>
+        </footer>
       </div>
     </main>
   );
