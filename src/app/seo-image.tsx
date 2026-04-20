@@ -84,9 +84,9 @@ export function BrandPreview({
       >
         <div
           style={{
-            display: "inline-flex",
+            display: "flex",
             alignItems: "center",
-            width: "fit-content",
+            width: "auto",
             borderRadius: 9999,
             border: `1px solid ${brandColors.border}`,
             background: "rgba(255, 255, 255, 0.05)",
