@@ -1,3 +1,13 @@
+import {
+  ArrowUpRightIcon,
+  BookOpenTextIcon,
+  CompassIcon,
+  CpuIcon,
+  MegaphoneIcon,
+} from "lucide-react";
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import {
@@ -8,26 +18,87 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { siteConfig } from "@/lib/data";
+import { siteConfig, siteUrl } from "@/lib/data";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
-import {
-  ArrowUpRightIcon,
-  BookOpenTextIcon,
-  CompassIcon,
-  CpuIcon,
-  MegaphoneIcon,
-} from "lucide-react";
+
+export const metadata: Metadata = {
+  title: {
+    absolute: "Ridwan | Software Engineer, Writer, and Speaker",
+  },
+  description: siteConfig.metadata.description as string,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Ridwan | Software Engineer, Writer, and Speaker",
+    description: siteConfig.metadata.description as string,
+    url: "/",
+    siteName: "Ridwan",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Ridwan - Software Engineer, Writer, and Speaker",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ridwan | Software Engineer, Writer, and Speaker",
+    description: siteConfig.metadata.description as string,
+    images: ["/twitter-image"],
+  },
+  keywords: [
+    "Ridwan",
+    "theridwanade",
+    "software engineer Nigeria",
+    "writer",
+    "speaker",
+    "open source",
+    "geospatial data",
+    "MapLocale",
+    "University of Ilorin",
+  ],
+};
 
 export default function Home() {
-  const github = siteConfig.links.socials.find((link) => link.label === "GitHub")?.href;
-  const maplocaleThread = "https://x.com/theridwanade/status/2042282489083736318?s=20";
+  const github = siteConfig.links.socials.find(
+    (link) => link.label === "GitHub",
+  )?.href;
+  const maplocaleThread =
+    "https://x.com/theridwanade/status/2042282489083736318?s=20";
   const maplocaleCore = "https://github.com/theridwanade/maplocale_core";
   const maplocaleConsole = "https://github.com/theridwanade/maplocale_console";
 
   return (
     <main className="relative overflow-hidden">
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Person",
+              name: "Ridwan",
+              alternateName: "theridwanade",
+              url: siteUrl,
+              image: `${siteUrl}${siteConfig.brand.imagePath}`,
+              jobTitle: "Software Engineer",
+              description: siteConfig.metadata.description,
+              sameAs: siteConfig.links.socials.map((item) => item.href),
+            },
+            {
+              "@type": "WebSite",
+              name: "Ridwan",
+              url: siteUrl,
+              description: siteConfig.metadata.description,
+              inLanguage: "en-US",
+            },
+          ],
+        })}
+      </script>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,var(--color-muted),transparent_45%),radial-gradient(circle_at_bottom_right,var(--color-accent),transparent_40%)]" />
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-56 bg-[linear-gradient(to_bottom,var(--color-muted),transparent)] opacity-60" />
 
@@ -68,7 +139,9 @@ export default function Home() {
                   href={siteConfig.links.newsletter}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn(buttonVariants({ variant: "outline", size: "lg" }))}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "lg" }),
+                  )}
                 >
                   Subscribe to my newsletter
                 </a>
@@ -194,7 +267,11 @@ export default function Home() {
           {siteConfig.skills.backend.length > 0 ? (
             <div className="flex flex-wrap gap-2">
               {siteConfig.skills.backend.map((skill) => (
-                <Badge key={skill} variant="secondary" className="h-7 px-3 text-xs">
+                <Badge
+                  key={skill}
+                  variant="secondary"
+                  className="h-7 px-3 text-xs"
+                >
                   {skill}
                 </Badge>
               ))}
@@ -206,7 +283,11 @@ export default function Home() {
           )}
           <div className="flex flex-wrap gap-2">
             {siteConfig.skills.interests.map((interest) => (
-              <Badge key={interest} variant="outline" className="h-7 px-3 text-xs">
+              <Badge
+                key={interest}
+                variant="outline"
+                className="h-7 px-3 text-xs"
+              >
                 {interest}
               </Badge>
             ))}
@@ -226,24 +307,51 @@ export default function Home() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CompassIcon className="size-5" />
-                Verified geospatial infrastructure for roads, paths, and real-world routes
+                Verified geospatial infrastructure for roads, paths, and
+                real-world routes
               </CardTitle>
               <CardDescription>
-                MapLocale builds hyperlocal, ground-truth map data for Nigeria, starting with the
-                University of Ilorin campus and the routes global maps often miss.
+                MapLocale builds hyperlocal, ground-truth map data for Nigeria,
+                starting with the University of Ilorin campus and the routes
+                global maps often miss.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-3">
-              <Link href="/projects/maplocale" className={cn(buttonVariants({ size: "sm" }))}>
+              <Link
+                href="/projects/maplocale"
+                className={cn(buttonVariants({ size: "sm" }))}
+              >
                 Explore MapLocale
               </Link>
               <a
                 href={maplocaleThread}
                 target="_blank"
                 rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                )}
               >
                 View Twitter Thread
+              </a>
+              <a
+                href={maplocaleCore}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                )}
+              >
+                MapLocale Core
+              </a>
+              <a
+                href={maplocaleConsole}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(
+                  buttonVariants({ variant: "outline", size: "sm" }),
+                )}
+              >
+                MapLocale Console
               </a>
               <span className="rounded-md border border-border/80 px-3 py-1 text-xs text-muted-foreground">
                 Geospatial Data Infrastructure
@@ -277,7 +385,8 @@ export default function Home() {
             <CardHeader>
               <CardTitle>Speaking</CardTitle>
               <CardDescription>
-                Aspiring public speaker and communicator. Follow my channels for updates.
+                Aspiring public speaker and communicator. Follow my channels for
+                updates.
               </CardDescription>
             </CardHeader>
             <CardContent className="flex flex-wrap gap-2">
@@ -287,7 +396,9 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                  )}
                 >
                   {item.label}
                 </a>
@@ -316,7 +427,9 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                  )}
                 >
                   {item.label}
                 </a>
@@ -340,7 +453,9 @@ export default function Home() {
                   href={item.href}
                   target="_blank"
                   rel="noreferrer"
-                  className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+                  className={cn(
+                    buttonVariants({ variant: "outline", size: "sm" }),
+                  )}
                 >
                   {item.label}
                 </a>
@@ -374,7 +489,10 @@ export default function Home() {
         <footer className="flex flex-col gap-2 pb-2 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 Ridwan. All rights reserved.</p>
           <a
-            href={siteConfig.links.socials.find((item) => item.label.includes("X"))?.href}
+            href={
+              siteConfig.links.socials.find((item) => item.label.includes("X"))
+                ?.href
+            }
             target="_blank"
             rel="noreferrer"
             className="underline-offset-4 hover:underline"

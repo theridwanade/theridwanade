@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 
+export const siteUrl = "https://theridwanade.me";
+
 export interface NavItem {
   label: string;
   href: string;
@@ -107,7 +109,13 @@ export const siteConfig: SiteConfig = {
   },
   skills: {
     backend: [],
-    interests: ["Philosophy", "Science", "Mathematics", "Public Speaking", "Communication"],
+    interests: [
+      "Philosophy",
+      "Science",
+      "Mathematics",
+      "Public Speaking",
+      "Communication",
+    ],
   },
   links: {
     socials: [
@@ -120,25 +128,78 @@ export const siteConfig: SiteConfig = {
       { label: "Substack", href: "https://substack.com/@theridwanade" },
       { label: "dev.to", href: "https://dev.to/theridwanade" },
     ],
-    contact: [
-      { label: "Email", href: "mailto:ridwan@theridwanade.me" },
-    ],
+    contact: [{ label: "Email", href: "mailto:ridwan@theridwanade.me" }],
     newsletter: "https://substack.com/@theridwanade",
   },
   projects: [],
   talkAbstracts: [],
   speaking: [],
   metadata: {
-    title: "Ridwan | Software Engineer",
+    metadataBase: new URL(siteUrl),
+    title: {
+      default: "Ridwan | Software Engineer, Writer, and Speaker",
+      template: "%s | Ridwan",
+    },
     description:
-      "Ridwan (theridwanade) is a Software Engineer, aspiring public speaker, and communicator exploring software, science, society, and technology.",
+      "Ridwan (theridwanade) is a Software Engineer, writer, and speaker building software, maps, and clear technical communication from Nigeria.",
+    applicationName: "Ridwan",
+    authors: [{ name: "Ridwan", url: siteUrl }],
+    creator: "Ridwan",
+    publisher: "Ridwan",
+    keywords: [
+      "Ridwan",
+      "theridwanade",
+      "software engineer",
+      "writer",
+      "speaker",
+      "Nigeria developer",
+      "open source",
+      "geospatial data",
+      "MapLocale",
+      "University of Ilorin",
+      "Library and Information Science",
+    ],
+    alternates: {
+      canonical: "/",
+    },
     openGraph: {
-      title: "Ridwan | Software Engineer",
+      title: "Ridwan | Software Engineer, Writer, and Speaker",
       description:
-        "Personal site of Ridwan (theridwanade): software engineering, writing, communication, and ideas across science, society, and technology.",
+        "Personal site of Ridwan (theridwanade): software engineering, writing, communication, and projects across software, maps, and technology.",
       siteName: "Ridwan",
       type: "website",
       locale: "en_US",
+      url: "/",
+      images: [
+        {
+          url: "/opengraph-image",
+          width: 1200,
+          height: 630,
+          alt: "Ridwan - Software Engineer, Writer, and Speaker",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Ridwan | Software Engineer, Writer, and Speaker",
+      description:
+        "Personal site of Ridwan (theridwanade): software engineering, writing, communication, and projects across software, maps, and technology.",
+      images: ["/twitter-image"],
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+        "max-video-preview": -1,
+      },
+    },
+    icons: {
+      icon: "/icon",
+      apple: "/apple-icon",
     },
   },
 };
