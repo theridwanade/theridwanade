@@ -66,78 +66,23 @@ export const siteConfig: SiteConfig = {
   hero: {
     headline: "Software engineering with first principles and clear communication.",
     subheadline:
-      "I am Ridwan (theridwanade), a software engineer focused on reliable architecture, clear interfaces, and the craft of communicating complex ideas with simplicity.",
+      "I am Ridwan (theridwanade), a software engineer and aspiring public speaker focused on communicating ideas with clarity.",
   },
   about: {
     technical:
-      "I design and implement backend systems with Node.js and NestJS, from domain modeling to deployment. My focus is predictable APIs, fault-tolerant services, and data flows that scale without losing clarity.",
+      "I build software with a focus on clarity, maintainability, and practical problem-solving.",
     intellectual:
-      "Philosophy, science, and mathematics shape how I reason about software. I use first principles to reduce assumptions, treat architecture as a set of testable hypotheses, and choose designs that hold under real constraints.",
+      "Philosophy, science, and mathematics shape how I think and how I approach engineering decisions.",
     community:
-      "I am an aspiring public speaker and communicator. I share practical engineering ideas to make technical systems more rigorous, more accessible, and easier to reason about.",
+      "I am an aspiring public speaker and communicator, learning to share technical ideas in ways that are useful and understandable.",
   },
   skills: {
-    backend: [
-      "Node.js",
-      "NestJS",
-      "TypeScript",
-      "PostgreSQL",
-      "Redis",
-      "Kafka",
-      "Docker",
-      "REST API Design",
-      "Microservices",
-      "System Architecture",
-    ],
+    backend: [],
     interests: ["Philosophy", "Science", "Mathematics", "Public Speaking", "Communication"],
   },
-  projects: [
-    {
-      title: "Atlas API Platform",
-      description:
-        "theridwanade led the design of a modular NestJS API platform with strict contracts, versioned endpoints, and observability-first workflows for multi-team development.",
-      tags: ["Node.js", "NestJS", "REST", "OpenAPI", "PostgreSQL"],
-      slug: "atlas-api-platform",
-    },
-    {
-      title: "Relay Microservice Mesh",
-      description:
-        "theridwanade architected an event-driven microservice system with clear service boundaries, idempotent consumers, and resilient async communication under high throughput.",
-      tags: ["Microservices", "Kafka", "Redis", "Docker", "Reliability"],
-      slug: "relay-microservice-mesh",
-    },
-    {
-      title: "Northbound System Core",
-      description:
-        "theridwanade implemented the core backend architecture for a distributed product, including auth, domain services, and performance profiling pipelines.",
-      tags: ["System Design", "Node.js", "NestJS", "Auth", "Performance"],
-      slug: "northbound-system-core",
-    },
-  ],
-  talkAbstracts: [
-    {
-      title: "The Entropy of Technical Debt",
-      description:
-        "Technical debt grows when local optimizations override system-level reasoning. This talk frames debt through entropy and shows how to reduce architectural disorder with explicit constraints and review loops.",
-    },
-    {
-      title: "First Principles in System Design",
-      description:
-        "When teams inherit complexity, patterns alone are not enough. This talk presents a first-principles method for evaluating trade-offs, defining invariants, and designing backend systems from fundamentals.",
-    },
-  ],
-  speaking: [
-    {
-      topic: "The Entropy of Technical Debt",
-      venue: "Jakarta Backend Meetup",
-      date: "2025-11-14",
-    },
-    {
-      topic: "First Principles in System Design",
-      venue: "Node.js Architecture Forum",
-      date: "2026-02-21",
-    },
-  ],
+  projects: [],
+  talkAbstracts: [],
+  speaking: [],
   metadata: {
     title: "Ridwan | Software Engineer",
     description:
@@ -146,7 +91,6 @@ export const siteConfig: SiteConfig = {
       title: "Ridwan | Software Engineer",
       description:
         "Software engineering by Ridwan (theridwanade), with a focus on clear communication, public speaking, and first-principles thinking in philosophy, science, and mathematics.",
-      url: "https://theridwanade.dev",
       siteName: "Ridwan",
       type: "website",
       locale: "en_US",

@@ -10,13 +10,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { siteConfig } from "@/lib/data";
-import {
-  ArrowUpRightIcon,
-  BookOpenTextIcon,
-  CpuIcon,
-  MegaphoneIcon,
-  SigmaIcon,
-} from "lucide-react";
+import { ArrowUpRightIcon, BookOpenTextIcon, CpuIcon, MegaphoneIcon, SigmaIcon } from "lucide-react";
 
 export default function Home() {
   return (
@@ -49,9 +43,11 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Button size="lg">Let&apos;s collaborate</Button>
-                <Button variant="outline" size="lg">
-                  View selected work
-                </Button>
+                {siteConfig.projects.length > 0 ? (
+                  <Button variant="outline" size="lg">
+                    View selected work
+                  </Button>
+                ) : null}
               </div>
             </div>
 
@@ -127,13 +123,19 @@ export default function Home() {
               Built for reliability and clarity
             </h2>
           </div>
-          <div className="flex flex-wrap gap-2">
-            {siteConfig.skills.backend.map((skill) => (
-              <Badge key={skill} variant="secondary" className="h-7 px-3 text-xs">
-                {skill}
-              </Badge>
-            ))}
-          </div>
+          {siteConfig.skills.backend.length > 0 ? (
+            <div className="flex flex-wrap gap-2">
+              {siteConfig.skills.backend.map((skill) => (
+                <Badge key={skill} variant="secondary" className="h-7 px-3 text-xs">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              Technical stack details will be published soon.
+            </p>
+          )}
           <div className="flex flex-wrap gap-2">
             {siteConfig.skills.interests.map((interest) => (
               <Badge key={interest} variant="outline" className="h-7 px-3 text-xs">
@@ -152,29 +154,37 @@ export default function Home() {
               Projects shaping backend craft
             </h2>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {siteConfig.projects.map((project) => (
-              <Card key={project.slug} className="bg-card/90">
-                <CardHeader>
-                  <CardTitle className="text-lg">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <Badge key={`${project.slug}-${tag}`} variant="outline">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <Button variant="ghost" size="sm" className="w-fit">
-                    Explore case study
-                    <ArrowUpRightIcon className="size-4" />
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {siteConfig.projects.length > 0 ? (
+            <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+              {siteConfig.projects.map((project) => (
+                <Card key={project.slug} className="bg-card/90">
+                  <CardHeader>
+                    <CardTitle className="text-lg">{project.title}</CardTitle>
+                    <CardDescription>{project.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-4">
+                    <div className="flex flex-wrap gap-1.5">
+                      {project.tags.map((tag) => (
+                        <Badge key={`${project.slug}-${tag}`} variant="outline">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                    <Button variant="ghost" size="sm" className="w-fit">
+                      Explore case study
+                      <ArrowUpRightIcon className="size-4" />
+                    </Button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <Card className="bg-card/90">
+              <CardContent className="pt-6 text-sm text-muted-foreground">
+                Real project case studies will be added here as they are published.
+              </CardContent>
+            </Card>
+          )}
         </section>
 
         <section className="grid gap-4 lg:grid-cols-2">
@@ -186,12 +196,18 @@ export default function Home() {
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-              {siteConfig.talkAbstracts.map((talk) => (
-                <article key={talk.title} className="space-y-1 rounded-lg border p-3">
-                  <h3 className="font-heading text-sm">{talk.title}</h3>
-                  <p className="text-sm text-muted-foreground">{talk.description}</p>
-                </article>
-              ))}
+              {siteConfig.talkAbstracts.length > 0 ? (
+                siteConfig.talkAbstracts.map((talk) => (
+                  <article key={talk.title} className="space-y-1 rounded-lg border p-3">
+                    <h3 className="font-heading text-sm">{talk.title}</h3>
+                    <p className="text-sm text-muted-foreground">{talk.description}</p>
+                  </article>
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  Upcoming talk topics will appear here.
+                </p>
+              )}
             </CardContent>
           </Card>
 
@@ -201,18 +217,24 @@ export default function Home() {
               <CardDescription>Planned and recent speaking engagements.</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3">
-              {siteConfig.speaking.map((item) => (
-                <div
-                  key={`${item.topic}-${item.date}`}
-                  className="flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3"
-                >
-                  <div>
-                    <p className="font-medium">{item.topic}</p>
-                    <p className="text-xs text-muted-foreground">{item.venue}</p>
+              {siteConfig.speaking.length > 0 ? (
+                siteConfig.speaking.map((item) => (
+                  <div
+                    key={`${item.topic}-${item.date}`}
+                    className="flex flex-wrap items-center justify-between gap-3 rounded-lg border p-3"
+                  >
+                    <div>
+                      <p className="font-medium">{item.topic}</p>
+                      <p className="text-xs text-muted-foreground">{item.venue}</p>
+                    </div>
+                    <Badge>{item.date}</Badge>
                   </div>
-                  <Badge>{item.date}</Badge>
-                </div>
-              ))}
+                ))
+              ) : (
+                <p className="text-sm text-muted-foreground">
+                  No public speaking events listed yet.
+                </p>
+              )}
             </CardContent>
           </Card>
         </section>
