@@ -245,22 +245,6 @@ export default function Home() {
               >
                 View Twitter Thread
               </a>
-              <a
-                href={maplocaleCore}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-              >
-                maplocale_core
-              </a>
-              <a
-                href={maplocaleConsole}
-                target="_blank"
-                rel="noreferrer"
-                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
-              >
-                maplocale_console
-              </a>
               <span className="rounded-md border border-border/80 px-3 py-1 text-xs text-muted-foreground">
                 Geospatial Data Infrastructure
               </span>

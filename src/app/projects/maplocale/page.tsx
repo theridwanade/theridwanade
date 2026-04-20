@@ -206,9 +206,9 @@ export default function MapLocalePage() {
             <Link href="/" className={cn(buttonVariants({ variant: "outline" }))}>
               Back to Home
             </Link>
-            <a href="mailto:ridwan@theridwanade.me" className={cn(buttonVariants({ size: "default" }))}>
+            <Link href="mailto:ridwan@theridwanade.me" className={cn(buttonVariants({ size: "default" }))}>
               Partner with MapLocale
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -405,11 +405,90 @@ export default function MapLocalePage() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <FolderGit2Icon className="size-5 text-muted-foreground" />
+            <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">Repository roles</h2>
+          </div>
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card className="bg-card/90">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <DatabaseIcon className="size-4" />
+                  maplocale_core
+                </CardTitle>
+                <CardDescription>
+                  The core backend for ingestion and geospatial data processing.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Core Backend</Badge>
+                  <Badge variant="outline">Ingestion</Badge>
+                  <Badge variant="outline">Validation</Badge>
+                  <Badge variant="outline">PostGIS</Badge>
+                </div>
+                <p>
+                  This service handles layer intake, processing rules, and spatial persistence for
+                  MapLocale's trusted data pipeline.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="bg-card/90">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <CompassIcon className="size-4" />
+                  maplocale_console
+                </CardTitle>
+                <CardDescription>
+                  The operations dashboard for mappers and contributors.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <div className="flex flex-wrap gap-2">
+                  <Badge variant="secondary">Mapper Dashboard</Badge>
+                  <Badge variant="outline">Contributor Ops</Badge>
+                  <Badge variant="outline">Review Flow</Badge>
+                </div>
+                <p>
+                  This interface supports mapping operations, contributor coordination, and progress
+                  visibility for on-ground updates.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <div className="flex items-center gap-2">
+            <MapPinnedIcon className="size-5 text-muted-foreground" />
+            <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">Contribute from UNILORIN campus</h2>
+          </div>
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle>Partners and contributors welcome</CardTitle>
+              <CardDescription>
+                If you are on the University of Ilorin campus and want to partner or contribute,
+                please reach out directly.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap items-center gap-3">
+              <Badge variant="secondary">University of Ilorin</Badge>
+              <Badge variant="outline">Partnership</Badge>
+              <Badge variant="outline">Contributor Call</Badge>
+              <Link href="mailto:ridwan@theridwanade.me" className={cn(buttonVariants({ size: "sm" }))}>
+                Contact Ridwan
+              </Link>
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="space-y-4">
+          <div className="flex items-center gap-2">
+            <FolderGit2Icon className="size-5 text-muted-foreground" />
             <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">Follow the build</h2>
           </div>
           <Card className="bg-card/90">
             <CardContent className="flex flex-wrap gap-3 pt-6">
-              <a
+              <Link
                 href={maplocaleThread}
                 target="_blank"
                 rel="noreferrer"
@@ -418,8 +497,8 @@ export default function MapLocalePage() {
                 <PenLineIcon className="size-4" />
                 Twitter Thread
                 <ArrowUpRightIcon className="size-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={maplocaleCore}
                 target="_blank"
                 rel="noreferrer"
@@ -428,8 +507,8 @@ export default function MapLocalePage() {
                 <FolderGit2Icon className="size-4" />
                 maplocale_core repository
                 <ArrowUpRightIcon className="size-4" />
-              </a>
-              <a
+              </Link>
+              <Link
                 href={maplocaleConsole}
                 target="_blank"
                 rel="noreferrer"
@@ -438,7 +517,7 @@ export default function MapLocalePage() {
                 <FolderGit2Icon className="size-4" />
                 maplocale_console repository
                 <ArrowUpRightIcon className="size-4" />
-              </a>
+              </Link>
             </CardContent>
           </Card>
         </section>
