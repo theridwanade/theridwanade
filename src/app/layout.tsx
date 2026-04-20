@@ -3,13 +3,14 @@ import "./globals.css";
 import { Oxanium, Raleway } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { siteConfig } from "@/lib/data";
 
 const ralewayHeading = Raleway({ subsets: ['latin'], variable: '--font-heading' });
 
 const oxanium = Oxanium({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
-  title: "Ridwan",
+  ...siteConfig.metadata,
 };
 
 export default function RootLayout({

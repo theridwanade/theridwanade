@@ -64,17 +64,17 @@ export const siteConfig: SiteConfig = {
     { label: "Thoughts", href: "/thoughts" },
   ],
   hero: {
-    headline: "Backend systems, built with first principles.",
+    headline: "Software engineering with first principles and clear communication.",
     subheadline:
-      "I am Ridwan (theridwanade), a Node.js and NestJS engineer focused on reliable architecture, clear interfaces, and measurable system behavior.",
+      "I am Ridwan (theridwanade), a software engineer focused on reliable architecture, clear interfaces, and the craft of communicating complex ideas with simplicity.",
   },
   about: {
     technical:
       "I design and implement backend systems with Node.js and NestJS, from domain modeling to deployment. My focus is predictable APIs, fault-tolerant services, and data flows that scale without losing clarity.",
     intellectual:
-      "Philosophy and science shape how I reason about software. I use first principles to reduce assumptions, treat architecture as a set of testable hypotheses, and choose designs that hold under real constraints.",
+      "Philosophy, science, and mathematics shape how I reason about software. I use first principles to reduce assumptions, treat architecture as a set of testable hypotheses, and choose designs that hold under real constraints.",
     community:
-      "I speak and write to make backend engineering more rigorous and more accessible. Sharing practical patterns helps teams build better systems and make better decisions.",
+      "I am an aspiring public speaker and communicator. I share practical engineering ideas to make technical systems more rigorous, more accessible, and easier to reason about.",
   },
   skills: {
     backend: [
@@ -89,7 +89,7 @@ export const siteConfig: SiteConfig = {
       "Microservices",
       "System Architecture",
     ],
-    interests: ["Philosophy", "Science", "Public Speaking"],
+    interests: ["Philosophy", "Science", "Mathematics", "Public Speaking", "Communication"],
   },
   projects: [
     {
@@ -139,13 +139,13 @@ export const siteConfig: SiteConfig = {
     },
   ],
   metadata: {
-    title: "Ridwan | Backend Engineer",
+    title: "Ridwan | Software Engineer",
     description:
-      "Ridwan (theridwanade) is a backend engineer specializing in Node.js and NestJS, focused on scalable architecture, clear system design, and technical knowledge sharing.",
+      "Ridwan (theridwanade) is a software engineer, aspiring public speaker, and communicator who loves philosophy, science, and mathematics.",
     openGraph: {
-      title: "Ridwan | Backend Engineer",
+      title: "Ridwan | Software Engineer",
       description:
-        "Backend engineering by Ridwan (theridwanade): Node.js, NestJS, system architecture, and talks on logic-driven software design.",
+        "Software engineering by Ridwan (theridwanade), with a focus on clear communication, public speaking, and first-principles thinking in philosophy, science, and mathematics.",
       url: "https://theridwanade.dev",
       siteName: "Ridwan",
       type: "website",
