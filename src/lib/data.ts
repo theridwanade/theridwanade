@@ -85,12 +85,12 @@ export const siteConfig: SiteConfig = {
   hero: {
     headline: "Hi, I am Ridwan.",
     subheadline:
-      "I am a Software Engineer. I build stuffs, open source, apps, hardwares, whatever sounds fun.",
+      "I am a Software Engineer. I build stuff: open source, apps, hardware, whatever sounds fun.",
   },
   bio: [
     "I am currently pursuing my degree in Library and Information Science at the University of Ilorin, where I research information management and dissemination.",
     "I aim to combine my computer science skills and academic knowledge to create innovative solutions that benefit society.",
-    "I am also an aspiring public speaker and communicator, sharing ideas across science, society, technology, and the topics I find interesting.",
+    "I am also an aspiring public speaker and communicator, sharing ideas across science, society, technology, and topics I find interesting.",
   ],
   education: {
     school: "University of Ilorin",
@@ -121,7 +121,7 @@ export const siteConfig: SiteConfig = {
       { label: "dev.to", href: "https://dev.to/theridwanade" },
     ],
     contact: [
-      { label: "Email", href: "mailto:hello@theridwanade.com" },
+      { label: "Email", href: "mailto:ridwan@theridwanade.me" },
     ],
     newsletter: "https://substack.com/@theridwanade",
   },
