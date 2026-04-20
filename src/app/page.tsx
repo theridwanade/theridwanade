@@ -11,15 +11,20 @@ import { Separator } from "@/components/ui/separator";
 import { siteConfig } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
+import Link from "next/link";
 import {
   ArrowUpRightIcon,
   BookOpenTextIcon,
+  CompassIcon,
   CpuIcon,
   MegaphoneIcon,
 } from "lucide-react";
 
 export default function Home() {
   const github = siteConfig.links.socials.find((link) => link.label === "GitHub")?.href;
+  const maplocaleThread = "https://x.com/theridwanade/status/2042282489083736318?s=20";
+  const maplocaleCore = "https://github.com/theridwanade/maplocale_core";
+  const maplocaleConsole = "https://github.com/theridwanade/maplocale_console";
 
   return (
     <main className="relative overflow-hidden">
@@ -206,6 +211,61 @@ export default function Home() {
               </Badge>
             ))}
           </div>
+        </section>
+
+        <section className="space-y-5">
+          <div className="space-y-2">
+            <p className="text-sm font-medium tracking-wide text-muted-foreground uppercase">
+              New Project
+            </p>
+            <h2 className="font-heading text-2xl tracking-tight sm:text-3xl">
+              MapLocale
+            </h2>
+          </div>
+          <Card className="bg-card/90">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <CompassIcon className="size-5" />
+                Verified geospatial infrastructure for roads, paths, and real-world routes
+              </CardTitle>
+              <CardDescription>
+                MapLocale builds hyperlocal, ground-truth map data for Nigeria, starting with the
+                University of Ilorin campus and the routes global maps often miss.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex flex-wrap gap-3">
+              <Link href="/projects/maplocale" className={cn(buttonVariants({ size: "sm" }))}>
+                Explore MapLocale
+              </Link>
+              <a
+                href={maplocaleThread}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              >
+                View Twitter Thread
+              </a>
+              <a
+                href={maplocaleCore}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              >
+                maplocale_core
+              </a>
+              <a
+                href={maplocaleConsole}
+                target="_blank"
+                rel="noreferrer"
+                className={cn(buttonVariants({ variant: "outline", size: "sm" }))}
+              >
+                maplocale_console
+              </a>
+              <span className="rounded-md border border-border/80 px-3 py-1 text-xs text-muted-foreground">
+                Geospatial Data Infrastructure
+              </span>
+            </CardContent>
+          </Card>
         </section>
 
         <section className="grid gap-4 lg:grid-cols-2">
